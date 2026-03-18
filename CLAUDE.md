@@ -262,3 +262,32 @@ npm run dev            # Start Vite dev server (requires build:tokens first)
 npm run build          # Full production build (tokens + type-check + vite)
 npm run mcp            # Start the MCP server on stdio
 ```
+
+---
+
+## Agent Rules — Non Negotiable
+
+These rules apply to EVERY task, without exception.
+No need to be reminded — always follow them.
+
+### After any component change
+- Update README.md of the modified component
+- Update Storybook stories if props, variants or states changed
+- Update the props table in README.md if props changed
+- Add a changelog entry at the bottom of README.md with the date and what changed
+
+### After any token change
+- Re-run the Style Dictionary build
+- Update CLAUDE.md if a new token category was introduced
+- Check that no existing component breaks (spot check Tailwind classes)
+
+### After adding a new component
+- Create the full folder structure: Component.vue + README.md + Component.stories.ts
+- Document every prop, variant, slot and emit in README.md
+- Add at least one Storybook story per variant
+- Register the component in /components/index.ts
+
+### General
+- Never leave a TODO without a comment explaining what's needed
+- Never use arbitrary Tailwind values — always use design tokens
+- If a Figma link is provided, always extract all visible variants before coding

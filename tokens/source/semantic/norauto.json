@@ -1,0 +1,1802 @@
+{
+  "light": {
+    "surface": {
+      "surface": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "surface — surface"
+      },
+      "surface-inverse": {
+        "$value": "#f4f4f6",
+        "$type": "color",
+        "$description": "surface — surface-inverse"
+      },
+      "surface-disabled": {
+        "$value": "#898fa03d",
+        "$type": "color",
+        "$description": "surface — surface-disabled"
+      },
+      "on-surface": {
+        "$value": "#11151d",
+        "$type": "color",
+        "$description": "surface — on-surface"
+      },
+      "on-surface-weak": {
+        "$value": "#51586c",
+        "$type": "color",
+        "$description": "surface — on-surface-weak"
+      },
+      "on-surface-extra-weak": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "surface — on-surface-extra-weak"
+      },
+      "on-surface-disabled": {
+        "$value": "#22293a51",
+        "$type": "color",
+        "$description": "surface — on-surface-disabled"
+      }
+    },
+    "brand-surface": {
+      "on-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "brand-surface — on-primary"
+      },
+      "on-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "brand-surface — on-secondary"
+      },
+      "primary": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "brand-surface — primary"
+      },
+      "primary-variant": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-surface — primary-variant"
+      },
+      "secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "brand-surface — secondary"
+      },
+      "secondary-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "brand-surface — secondary-variant"
+      },
+      "on-tertiary": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-surface — on-tertiary"
+      }
+    },
+    "icon": {
+      "icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "icon — icon-inverse"
+      },
+      "icon": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "icon — icon"
+      },
+      "icon-inverse-variant": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "icon — icon-inverse-variant"
+      },
+      "icon-variant": {
+        "$value": "#e99b29",
+        "$type": "color",
+        "$description": "icon — icon-variant"
+      }
+    },
+    "layer": {
+      "on-overlay": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "layer — on-overlay"
+      },
+      "on-overlay-inverse": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "layer — on-overlay-inverse"
+      },
+      "overlay": {
+        "$value": "#000000a3",
+        "$type": "color",
+        "$description": "layer — overlay"
+      },
+      "overlay-inverse": {
+        "$value": "#ffffffa3",
+        "$type": "color",
+        "$description": "layer — overlay-inverse"
+      }
+    },
+    "link": {
+      "link-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "link — link-inverse"
+      },
+      "link-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "link — link-secondary"
+      },
+      "link-primary": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "link — link-primary"
+      }
+    },
+    "button": {
+      "on-button-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — on-button-primary"
+      },
+      "on-button-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-secondary"
+      },
+      "on-button-ghost": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-ghost"
+      },
+      "button-primary": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "button — button-primary"
+      },
+      "button-tertiary-outline": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "button — button-tertiary-outline"
+      },
+      "on-button-tertiary": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "button — on-button-tertiary"
+      },
+      "button-primary-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "button — button-primary-variant"
+      },
+      "button-secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "button — button-secondary"
+      },
+      "button-secondary-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "button — button-secondary-variant"
+      },
+      "button-tertiary": {
+        "$value": "#cce3f800",
+        "$type": "color",
+        "$description": "button — button-tertiary"
+      },
+      "button-ghost": {
+        "$value": "#cce3f800",
+        "$type": "color",
+        "$description": "button — button-ghost"
+      },
+      "button-tertiary-variant": {
+        "$value": "#cce3f8",
+        "$type": "color",
+        "$description": "button — button-tertiary-variant"
+      },
+      "button-ghost-variant": {
+        "$value": "#cce3f8",
+        "$type": "color",
+        "$description": "button — button-ghost-variant"
+      },
+      "button-fab": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "button — button-fab"
+      },
+      "on-button-fab": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-fab"
+      },
+      "button-fab-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "button — button-fab-variant"
+      },
+      "button-destructive-primary": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — button-destructive-primary"
+      },
+      "button-destructive-primary-variant": {
+        "$value": "#8e2e22",
+        "$type": "color",
+        "$description": "button — button-destructive-primary-variant"
+      },
+      "button-destructive-outline": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — button-destructive-outline"
+      },
+      "button-destructive-secondary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — button-destructive-secondary"
+      },
+      "button-destructive-secondary-variant": {
+        "$value": "#f0d7d5",
+        "$type": "color",
+        "$description": "button — button-destructive-secondary-variant"
+      },
+      "on-button-destructive-secondary": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — on-button-destructive-secondary"
+      },
+      "on-button-destructive-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — on-button-destructive-primary"
+      }
+    },
+    "header": {
+      "on-header-surface": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "header — on-header-surface"
+      },
+      "header-icon": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "header — header-icon"
+      },
+      "header-surface": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "header — header-surface"
+      },
+      "header-outline": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "header — header-outline"
+      },
+      "header-icon-variant": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "header — header-icon-variant"
+      },
+      "header-badge": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "header — header-badge"
+      },
+      "header-surface-disabled": {
+        "$value": "#ffffff51",
+        "$type": "color",
+        "$description": "header — header-surface-disabled"
+      },
+      "on-header-surface-disabled": {
+        "$value": "#ffffff66",
+        "$type": "color",
+        "$description": "header — on-header-surface-disabled"
+      },
+      "on-header-badge": {
+        "$value": "#001638",
+        "$type": "color",
+        "$description": "header — on-header-badge"
+      }
+    },
+    "decorative": {
+      "decorative-surface-variant": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "decorative — decorative-surface-variant"
+      },
+      "decorative-surface": {
+        "$value": "#e99b29",
+        "$type": "color",
+        "$description": "decorative — decorative-surface"
+      }
+    },
+    "input": {
+      "input-surface": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "input — input-surface"
+      },
+      "input-surface-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "input — input-surface-variant"
+      },
+      "input-outline-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "input — input-outline-variant"
+      },
+      "input-outline": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "input — input-outline"
+      }
+    },
+    "outline": {
+      "outline": {
+        "$value": "#a4a9b6",
+        "$type": "color",
+        "$description": "outline — outline"
+      },
+      "outline-weak": {
+        "$value": "#dddfe4",
+        "$type": "color",
+        "$description": "outline — outline-weak"
+      },
+      "outline-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "outline — outline-variant"
+      }
+    },
+    "banner": {
+      "leading-banner": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "banner — leading-banner"
+      },
+      "on-leading-banner": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "banner — on-leading-banner"
+      }
+    },
+    "tag": {
+      "tag-default": {
+        "$value": "#002bae",
+        "$type": "color",
+        "$description": "tag — tag-default"
+      },
+      "tag-exclusivity": {
+        "$value": "#ffc40c",
+        "$type": "color",
+        "$description": "tag — tag-exclusivity"
+      },
+      "tag-offer": {
+        "$value": "#d30000",
+        "$type": "color",
+        "$description": "tag — tag-offer"
+      },
+      "tag-special": {
+        "$value": "#000000",
+        "$type": "color",
+        "$description": "tag — tag-special"
+      },
+      "tag-ecology": {
+        "$value": "#007c07",
+        "$type": "color",
+        "$description": "tag — tag-ecology"
+      },
+      "tag-brand": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "tag — tag-brand"
+      },
+      "tag-brand-light": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "tag — tag-brand-light"
+      },
+      "tag-france": {
+        "$value": "#002bae",
+        "$type": "color",
+        "$description": "tag — tag-france"
+      },
+      "tag-context": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "tag — tag-context"
+      },
+      "tag-selection": {
+        "$value": "#f07828",
+        "$type": "color",
+        "$description": "tag — tag-selection"
+      },
+      "tag-spotlight": {
+        "$value": "#db3333",
+        "$type": "color",
+        "$description": "tag — tag-spotlight"
+      }
+    },
+    "rating": {
+      "rating": {
+        "$value": "#ffc40c",
+        "$type": "color",
+        "$description": "rating — rating"
+      }
+    },
+    "brand-origin": {
+      "brand-primary": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-origin — brand-primary"
+      },
+      "brand-secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "brand-origin — brand-secondary"
+      }
+    },
+    "information": {
+      "info-surface": {
+        "$value": "#ebf1fa",
+        "$type": "color",
+        "$description": "information — info-surface"
+      },
+      "info-surface-inverse": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-surface-inverse"
+      },
+      "on-info-surface": {
+        "$value": "#1d4379",
+        "$type": "color",
+        "$description": "information — on-info-surface"
+      },
+      "on-info-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "information — on-info-surface-inverse"
+      },
+      "info-outline": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-outline"
+      },
+      "info-icon": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-icon"
+      },
+      "info-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "information — info-icon-inverse"
+      }
+    },
+    "success": {
+      "success-surface": {
+        "$value": "#ecf3ec",
+        "$type": "color",
+        "$description": "success — success-surface"
+      },
+      "success-surface-inverse": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-surface-inverse"
+      },
+      "on-success-surface": {
+        "$value": "#285029",
+        "$type": "color",
+        "$description": "success — on-success-surface"
+      },
+      "on-success-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "success — on-success-surface-inverse"
+      },
+      "success-outline": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-outline"
+      },
+      "success-icon": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-icon"
+      },
+      "success-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "success — success-icon-inverse"
+      }
+    },
+    "warning": {
+      "warning-surface": {
+        "$value": "#fffaec",
+        "$type": "color",
+        "$description": "warning — warning-surface"
+      },
+      "warning-surface-inverse": {
+        "$value": "#fdc93e",
+        "$type": "color",
+        "$description": "warning — warning-surface-inverse"
+      },
+      "on-warning-surface": {
+        "$value": "#9c690d",
+        "$type": "color",
+        "$description": "warning — on-warning-surface"
+      },
+      "on-warning-surface-inverse": {
+        "$value": "#4e3406",
+        "$type": "color",
+        "$description": "warning — on-warning-surface-inverse"
+      },
+      "warning-outline": {
+        "$value": "#ea9d13",
+        "$type": "color",
+        "$description": "warning — warning-outline"
+      },
+      "warning-icon": {
+        "$value": "#ea9d13",
+        "$type": "color",
+        "$description": "warning — warning-icon"
+      },
+      "warning-icon-inverse": {
+        "$value": "#4e3406",
+        "$type": "color",
+        "$description": "warning — warning-icon-inverse"
+      }
+    },
+    "danger": {
+      "danger-surface": {
+        "$value": "#f7ebea",
+        "$type": "color",
+        "$description": "danger — danger-surface"
+      },
+      "danger-surface-inverse": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-surface-inverse"
+      },
+      "on-danger-surface": {
+        "$value": "#6b221a",
+        "$type": "color",
+        "$description": "danger — on-danger-surface"
+      },
+      "on-danger-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "danger — on-danger-surface-inverse"
+      },
+      "danger-outline": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-outline"
+      },
+      "danger-icon": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-icon"
+      },
+      "danger-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "danger — danger-icon-inverse"
+      }
+    },
+    "decorative-green": {
+      "surface-deco-green": {
+        "$value": "#e6f2e6",
+        "$type": "color",
+        "$description": "decorative-green — surface-deco-green"
+      },
+      "on-surface-deco-green": {
+        "$value": "#003203",
+        "$type": "color",
+        "$description": "decorative-green — on-surface-deco-green"
+      }
+    }
+  },
+  "dark": {
+    "surface": {
+      "surface": {
+        "$value": "#1e293b",
+        "$type": "color",
+        "$description": "surface — surface"
+      },
+      "surface-inverse": {
+        "$value": "#172032",
+        "$type": "color",
+        "$description": "surface — surface-inverse"
+      },
+      "surface-disabled": {
+        "$value": "#898fa03d",
+        "$type": "color",
+        "$description": "surface — surface-disabled"
+      },
+      "on-surface": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "surface — on-surface"
+      },
+      "on-surface-weak": {
+        "$value": "#d6e1f2",
+        "$type": "color",
+        "$description": "surface — on-surface-weak"
+      },
+      "on-surface-extra-weak": {
+        "$value": "#8da5c8",
+        "$type": "color",
+        "$description": "surface — on-surface-extra-weak"
+      },
+      "on-surface-disabled": {
+        "$value": "#22293a51",
+        "$type": "color",
+        "$description": "surface — on-surface-disabled"
+      }
+    },
+    "brand-surface": {
+      "on-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "brand-surface — on-primary"
+      },
+      "on-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "brand-surface — on-secondary"
+      },
+      "primary": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "brand-surface — primary"
+      },
+      "primary-variant": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-surface — primary-variant"
+      },
+      "secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "brand-surface — secondary"
+      },
+      "secondary-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "brand-surface — secondary-variant"
+      },
+      "on-tertiary": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-surface — on-tertiary"
+      }
+    },
+    "icon": {
+      "icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "icon — icon-inverse"
+      },
+      "icon": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "icon — icon"
+      },
+      "icon-inverse-variant": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "icon — icon-inverse-variant"
+      },
+      "icon-variant": {
+        "$value": "#e99b29",
+        "$type": "color",
+        "$description": "icon — icon-variant"
+      }
+    },
+    "layer": {
+      "on-overlay": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "layer — on-overlay"
+      },
+      "on-overlay-inverse": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "layer — on-overlay-inverse"
+      },
+      "overlay": {
+        "$value": "#000000a3",
+        "$type": "color",
+        "$description": "layer — overlay"
+      },
+      "overlay-inverse": {
+        "$value": "#ffffffa3",
+        "$type": "color",
+        "$description": "layer — overlay-inverse"
+      }
+    },
+    "link": {
+      "link-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "link — link-inverse"
+      },
+      "link-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "link — link-secondary"
+      },
+      "link-primary": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "link — link-primary"
+      }
+    },
+    "button": {
+      "on-button-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — on-button-primary"
+      },
+      "on-button-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-secondary"
+      },
+      "on-button-ghost": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-ghost"
+      },
+      "button-primary": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "button — button-primary"
+      },
+      "button-tertiary-outline": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "button — button-tertiary-outline"
+      },
+      "on-button-tertiary": {
+        "$value": "#b5d6ff",
+        "$type": "color",
+        "$description": "button — on-button-tertiary"
+      },
+      "button-primary-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "button — button-primary-variant"
+      },
+      "button-secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "button — button-secondary"
+      },
+      "button-secondary-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "button — button-secondary-variant"
+      },
+      "button-tertiary": {
+        "$value": "#1d324f",
+        "$type": "color",
+        "$description": "button — button-tertiary"
+      },
+      "button-ghost": {
+        "$value": "#cce3f800",
+        "$type": "color",
+        "$description": "button — button-ghost"
+      },
+      "button-tertiary-variant": {
+        "$value": "#1d324f",
+        "$type": "color",
+        "$description": "button — button-tertiary-variant"
+      },
+      "button-ghost-variant": {
+        "$value": "#cce3f8",
+        "$type": "color",
+        "$description": "button — button-ghost-variant"
+      },
+      "button-fab": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "button — button-fab"
+      },
+      "on-button-fab": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-fab"
+      },
+      "button-fab-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "button — button-fab-variant"
+      },
+      "button-destructive-primary": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — button-destructive-primary"
+      },
+      "button-destructive-primary-variant": {
+        "$value": "#8e2e22",
+        "$type": "color",
+        "$description": "button — button-destructive-primary-variant"
+      },
+      "button-destructive-outline": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — button-destructive-outline"
+      },
+      "button-destructive-secondary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — button-destructive-secondary"
+      },
+      "button-destructive-secondary-variant": {
+        "$value": "#f0d7d5",
+        "$type": "color",
+        "$description": "button — button-destructive-secondary-variant"
+      },
+      "on-button-destructive-secondary": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — on-button-destructive-secondary"
+      },
+      "on-button-destructive-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — on-button-destructive-primary"
+      }
+    },
+    "header": {
+      "on-header-surface": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "header — on-header-surface"
+      },
+      "header-icon": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "header — header-icon"
+      },
+      "header-surface": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "header — header-surface"
+      },
+      "header-outline": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "header — header-outline"
+      },
+      "header-icon-variant": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "header — header-icon-variant"
+      },
+      "header-badge": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "header — header-badge"
+      },
+      "header-surface-disabled": {
+        "$value": "#ffffff51",
+        "$type": "color",
+        "$description": "header — header-surface-disabled"
+      },
+      "on-header-surface-disabled": {
+        "$value": "#ffffff66",
+        "$type": "color",
+        "$description": "header — on-header-surface-disabled"
+      },
+      "on-header-badge": {
+        "$value": "#001638",
+        "$type": "color",
+        "$description": "header — on-header-badge"
+      }
+    },
+    "decorative": {
+      "decorative-surface-variant": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "decorative — decorative-surface-variant"
+      },
+      "decorative-surface": {
+        "$value": "#e99b29",
+        "$type": "color",
+        "$description": "decorative — decorative-surface"
+      }
+    },
+    "input": {
+      "input-surface": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "input — input-surface"
+      },
+      "input-surface-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "input — input-surface-variant"
+      },
+      "input-outline-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "input — input-outline-variant"
+      },
+      "input-outline": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "input — input-outline"
+      }
+    },
+    "outline": {
+      "outline": {
+        "$value": "#616f83",
+        "$type": "color",
+        "$description": "outline — outline"
+      },
+      "outline-weak": {
+        "$value": "#334155",
+        "$type": "color",
+        "$description": "outline — outline-weak"
+      },
+      "outline-variant": {
+        "$value": "#235499",
+        "$type": "color",
+        "$description": "outline — outline-variant"
+      }
+    },
+    "banner": {
+      "leading-banner": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "banner — leading-banner"
+      },
+      "on-leading-banner": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "banner — on-leading-banner"
+      }
+    },
+    "tag": {
+      "tag-default": {
+        "$value": "#002bae",
+        "$type": "color",
+        "$description": "tag — tag-default"
+      },
+      "tag-exclusivity": {
+        "$value": "#ffc40c",
+        "$type": "color",
+        "$description": "tag — tag-exclusivity"
+      },
+      "tag-offer": {
+        "$value": "#d30000",
+        "$type": "color",
+        "$description": "tag — tag-offer"
+      },
+      "tag-special": {
+        "$value": "#000000",
+        "$type": "color",
+        "$description": "tag — tag-special"
+      },
+      "tag-ecology": {
+        "$value": "#007c07",
+        "$type": "color",
+        "$description": "tag — tag-ecology"
+      },
+      "tag-brand": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "tag — tag-brand"
+      },
+      "tag-brand-light": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "tag — tag-brand-light"
+      },
+      "tag-france": {
+        "$value": "#002bae",
+        "$type": "color",
+        "$description": "tag — tag-france"
+      },
+      "tag-context": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "tag — tag-context"
+      },
+      "tag-selection": {
+        "$value": "#f07828",
+        "$type": "color",
+        "$description": "tag — tag-selection"
+      },
+      "tag-spotlight": {
+        "$value": "#db3333",
+        "$type": "color",
+        "$description": "tag — tag-spotlight"
+      }
+    },
+    "rating": {
+      "rating": {
+        "$value": "#ffc40c",
+        "$type": "color",
+        "$description": "rating — rating"
+      }
+    },
+    "brand-origin": {
+      "brand-primary": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-origin — brand-primary"
+      },
+      "brand-secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "brand-origin — brand-secondary"
+      }
+    },
+    "information": {
+      "info-surface": {
+        "$value": "#23395e",
+        "$type": "color",
+        "$description": "information — info-surface"
+      },
+      "info-surface-inverse": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-surface-inverse"
+      },
+      "on-info-surface": {
+        "$value": "#9ac7ff",
+        "$type": "color",
+        "$description": "information — on-info-surface"
+      },
+      "on-info-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "information — on-info-surface-inverse"
+      },
+      "info-outline": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-outline"
+      },
+      "info-icon": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-icon"
+      },
+      "info-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "information — info-icon-inverse"
+      }
+    },
+    "success": {
+      "success-surface": {
+        "$value": "#ecf3ec",
+        "$type": "color",
+        "$description": "success — success-surface"
+      },
+      "success-surface-inverse": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-surface-inverse"
+      },
+      "on-success-surface": {
+        "$value": "#285029",
+        "$type": "color",
+        "$description": "success — on-success-surface"
+      },
+      "on-success-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "success — on-success-surface-inverse"
+      },
+      "success-outline": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-outline"
+      },
+      "success-icon": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-icon"
+      },
+      "success-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "success — success-icon-inverse"
+      }
+    },
+    "warning": {
+      "warning-surface": {
+        "$value": "#fffaec",
+        "$type": "color",
+        "$description": "warning — warning-surface"
+      },
+      "warning-surface-inverse": {
+        "$value": "#fdc93e",
+        "$type": "color",
+        "$description": "warning — warning-surface-inverse"
+      },
+      "on-warning-surface": {
+        "$value": "#9c690d",
+        "$type": "color",
+        "$description": "warning — on-warning-surface"
+      },
+      "on-warning-surface-inverse": {
+        "$value": "#4e3406",
+        "$type": "color",
+        "$description": "warning — on-warning-surface-inverse"
+      },
+      "warning-outline": {
+        "$value": "#ea9d13",
+        "$type": "color",
+        "$description": "warning — warning-outline"
+      },
+      "warning-icon": {
+        "$value": "#ea9d13",
+        "$type": "color",
+        "$description": "warning — warning-icon"
+      },
+      "warning-icon-inverse": {
+        "$value": "#4e3406",
+        "$type": "color",
+        "$description": "warning — warning-icon-inverse"
+      }
+    },
+    "danger": {
+      "danger-surface": {
+        "$value": "#3c1f23",
+        "$type": "color",
+        "$description": "danger — danger-surface"
+      },
+      "danger-surface-inverse": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-surface-inverse"
+      },
+      "on-danger-surface": {
+        "$value": "#ffa9a9",
+        "$type": "color",
+        "$description": "danger — on-danger-surface"
+      },
+      "on-danger-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "danger — on-danger-surface-inverse"
+      },
+      "danger-outline": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-outline"
+      },
+      "danger-icon": {
+        "$value": "#ffa9a9",
+        "$type": "color",
+        "$description": "danger — danger-icon"
+      },
+      "danger-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "danger — danger-icon-inverse"
+      }
+    },
+    "decorative-green": {
+      "surface-deco-green": {
+        "$value": "#339639",
+        "$type": "color",
+        "$description": "decorative-green — surface-deco-green"
+      },
+      "on-surface-deco-green": {
+        "$value": "#e6f2e6",
+        "$type": "color",
+        "$description": "decorative-green — on-surface-deco-green"
+      }
+    }
+  },
+  "contrast": {
+    "surface": {
+      "surface": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "surface — surface"
+      },
+      "surface-inverse": {
+        "$value": "#f4f4f6",
+        "$type": "color",
+        "$description": "surface — surface-inverse"
+      },
+      "surface-disabled": {
+        "$value": "#898fa03d",
+        "$type": "color",
+        "$description": "surface — surface-disabled"
+      },
+      "on-surface": {
+        "$value": "#11151d",
+        "$type": "color",
+        "$description": "surface — on-surface"
+      },
+      "on-surface-weak": {
+        "$value": "#51586c",
+        "$type": "color",
+        "$description": "surface — on-surface-weak"
+      },
+      "on-surface-extra-weak": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "surface — on-surface-extra-weak"
+      },
+      "on-surface-disabled": {
+        "$value": "#22293a51",
+        "$type": "color",
+        "$description": "surface — on-surface-disabled"
+      }
+    },
+    "brand-surface": {
+      "on-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "brand-surface — on-primary"
+      },
+      "on-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "brand-surface — on-secondary"
+      },
+      "primary": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "brand-surface — primary"
+      },
+      "primary-variant": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-surface — primary-variant"
+      },
+      "secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "brand-surface — secondary"
+      },
+      "secondary-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "brand-surface — secondary-variant"
+      },
+      "on-tertiary": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-surface — on-tertiary"
+      }
+    },
+    "icon": {
+      "icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "icon — icon-inverse"
+      },
+      "icon": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "icon — icon"
+      },
+      "icon-inverse-variant": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "icon — icon-inverse-variant"
+      },
+      "icon-variant": {
+        "$value": "#e99b29",
+        "$type": "color",
+        "$description": "icon — icon-variant"
+      }
+    },
+    "layer": {
+      "on-overlay": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "layer — on-overlay"
+      },
+      "on-overlay-inverse": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "layer — on-overlay-inverse"
+      },
+      "overlay": {
+        "$value": "#000000a3",
+        "$type": "color",
+        "$description": "layer — overlay"
+      },
+      "overlay-inverse": {
+        "$value": "#ffffffa3",
+        "$type": "color",
+        "$description": "layer — overlay-inverse"
+      }
+    },
+    "link": {
+      "link-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "link — link-inverse"
+      },
+      "link-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "link — link-secondary"
+      },
+      "link-primary": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "link — link-primary"
+      }
+    },
+    "button": {
+      "on-button-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — on-button-primary"
+      },
+      "on-button-secondary": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-secondary"
+      },
+      "on-button-ghost": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-ghost"
+      },
+      "button-primary": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "button — button-primary"
+      },
+      "button-tertiary-outline": {
+        "$value": "#005ab8",
+        "$type": "color",
+        "$description": "button — button-tertiary-outline"
+      },
+      "on-button-tertiary": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "button — on-button-tertiary"
+      },
+      "button-primary-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "button — button-primary-variant"
+      },
+      "button-secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "button — button-secondary"
+      },
+      "button-secondary-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "button — button-secondary-variant"
+      },
+      "button-tertiary": {
+        "$value": "#cce3f800",
+        "$type": "color",
+        "$description": "button — button-tertiary"
+      },
+      "button-ghost": {
+        "$value": "#cce3f800",
+        "$type": "color",
+        "$description": "button — button-ghost"
+      },
+      "button-tertiary-variant": {
+        "$value": "#cce3f8",
+        "$type": "color",
+        "$description": "button — button-tertiary-variant"
+      },
+      "button-ghost-variant": {
+        "$value": "#cce3f8",
+        "$type": "color",
+        "$description": "button — button-ghost-variant"
+      },
+      "button-fab": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "button — button-fab"
+      },
+      "on-button-fab": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "button — on-button-fab"
+      },
+      "button-fab-variant": {
+        "$value": "#d67e21",
+        "$type": "color",
+        "$description": "button — button-fab-variant"
+      },
+      "button-destructive-primary": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — button-destructive-primary"
+      },
+      "button-destructive-primary-variant": {
+        "$value": "#8e2e22",
+        "$type": "color",
+        "$description": "button — button-destructive-primary-variant"
+      },
+      "button-destructive-outline": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — button-destructive-outline"
+      },
+      "button-destructive-secondary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — button-destructive-secondary"
+      },
+      "button-destructive-secondary-variant": {
+        "$value": "#f0d7d5",
+        "$type": "color",
+        "$description": "button — button-destructive-secondary-variant"
+      },
+      "on-button-destructive-secondary": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "button — on-button-destructive-secondary"
+      },
+      "on-button-destructive-primary": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "button — on-button-destructive-primary"
+      }
+    },
+    "header": {
+      "on-header-surface": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "header — on-header-surface"
+      },
+      "header-icon": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "header — header-icon"
+      },
+      "header-surface": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "header — header-surface"
+      },
+      "header-outline": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "header — header-outline"
+      },
+      "header-icon-variant": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "header — header-icon-variant"
+      },
+      "header-badge": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "header — header-badge"
+      },
+      "header-surface-disabled": {
+        "$value": "#ffffff51",
+        "$type": "color",
+        "$description": "header — header-surface-disabled"
+      },
+      "on-header-surface-disabled": {
+        "$value": "#ffffff66",
+        "$type": "color",
+        "$description": "header — on-header-surface-disabled"
+      },
+      "on-header-badge": {
+        "$value": "#001638",
+        "$type": "color",
+        "$description": "header — on-header-badge"
+      }
+    },
+    "decorative": {
+      "decorative-surface-variant": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "decorative — decorative-surface-variant"
+      },
+      "decorative-surface": {
+        "$value": "#e99b29",
+        "$type": "color",
+        "$description": "decorative — decorative-surface"
+      }
+    },
+    "input": {
+      "input-surface": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "input — input-surface"
+      },
+      "input-surface-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "input — input-surface-variant"
+      },
+      "input-outline-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "input — input-outline-variant"
+      },
+      "input-outline": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "input — input-outline"
+      }
+    },
+    "outline": {
+      "outline": {
+        "$value": "#a4a9b6",
+        "$type": "color",
+        "$description": "outline — outline"
+      },
+      "outline-weak": {
+        "$value": "#dddfe4",
+        "$type": "color",
+        "$description": "outline — outline-weak"
+      },
+      "outline-variant": {
+        "$value": "#004293",
+        "$type": "color",
+        "$description": "outline — outline-variant"
+      }
+    },
+    "banner": {
+      "leading-banner": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "banner — leading-banner"
+      },
+      "on-leading-banner": {
+        "$value": "#22293a",
+        "$type": "color",
+        "$description": "banner — on-leading-banner"
+      }
+    },
+    "tag": {
+      "tag-default": {
+        "$value": "#002bae",
+        "$type": "color",
+        "$description": "tag — tag-default"
+      },
+      "tag-exclusivity": {
+        "$value": "#ffc40c",
+        "$type": "color",
+        "$description": "tag — tag-exclusivity"
+      },
+      "tag-offer": {
+        "$value": "#d30000",
+        "$type": "color",
+        "$description": "tag — tag-offer"
+      },
+      "tag-special": {
+        "$value": "#000000",
+        "$type": "color",
+        "$description": "tag — tag-special"
+      },
+      "tag-ecology": {
+        "$value": "#007c07",
+        "$type": "color",
+        "$description": "tag — tag-ecology"
+      },
+      "tag-brand": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "tag — tag-brand"
+      },
+      "tag-brand-light": {
+        "$value": "#0071dc",
+        "$type": "color",
+        "$description": "tag — tag-brand-light"
+      },
+      "tag-france": {
+        "$value": "#002bae",
+        "$type": "color",
+        "$description": "tag — tag-france"
+      },
+      "tag-context": {
+        "$value": "#6d7488",
+        "$type": "color",
+        "$description": "tag — tag-context"
+      },
+      "tag-selection": {
+        "$value": "#f07828",
+        "$type": "color",
+        "$description": "tag — tag-selection"
+      },
+      "tag-spotlight": {
+        "$value": "#db3333",
+        "$type": "color",
+        "$description": "tag — tag-spotlight"
+      }
+    },
+    "rating": {
+      "rating": {
+        "$value": "#ffc40c",
+        "$type": "color",
+        "$description": "rating — rating"
+      }
+    },
+    "brand-origin": {
+      "brand-primary": {
+        "$value": "#002b6f",
+        "$type": "color",
+        "$description": "brand-origin — brand-primary"
+      },
+      "brand-secondary": {
+        "$value": "#fcb731",
+        "$type": "color",
+        "$description": "brand-origin — brand-secondary"
+      }
+    },
+    "information": {
+      "info-surface": {
+        "$value": "#ebf1fa",
+        "$type": "color",
+        "$description": "information — info-surface"
+      },
+      "info-surface-inverse": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-surface-inverse"
+      },
+      "on-info-surface": {
+        "$value": "#1d4379",
+        "$type": "color",
+        "$description": "information — on-info-surface"
+      },
+      "on-info-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "information — on-info-surface-inverse"
+      },
+      "info-outline": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-outline"
+      },
+      "info-icon": {
+        "$value": "#316fca",
+        "$type": "color",
+        "$description": "information — info-icon"
+      },
+      "info-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "information — info-icon-inverse"
+      }
+    },
+    "success": {
+      "success-surface": {
+        "$value": "#ecf3ec",
+        "$type": "color",
+        "$description": "success — success-surface"
+      },
+      "success-surface-inverse": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-surface-inverse"
+      },
+      "on-success-surface": {
+        "$value": "#285029",
+        "$type": "color",
+        "$description": "success — on-success-surface"
+      },
+      "on-success-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "success — on-success-surface-inverse"
+      },
+      "success-outline": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-outline"
+      },
+      "success-icon": {
+        "$value": "#428544",
+        "$type": "color",
+        "$description": "success — success-icon"
+      },
+      "success-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "success — success-icon-inverse"
+      }
+    },
+    "warning": {
+      "warning-surface": {
+        "$value": "#fffaec",
+        "$type": "color",
+        "$description": "warning — warning-surface"
+      },
+      "warning-surface-inverse": {
+        "$value": "#fdc93e",
+        "$type": "color",
+        "$description": "warning — warning-surface-inverse"
+      },
+      "on-warning-surface": {
+        "$value": "#9c690d",
+        "$type": "color",
+        "$description": "warning — on-warning-surface"
+      },
+      "on-warning-surface-inverse": {
+        "$value": "#4e3406",
+        "$type": "color",
+        "$description": "warning — on-warning-surface-inverse"
+      },
+      "warning-outline": {
+        "$value": "#ea9d13",
+        "$type": "color",
+        "$description": "warning — warning-outline"
+      },
+      "warning-icon": {
+        "$value": "#ea9d13",
+        "$type": "color",
+        "$description": "warning — warning-icon"
+      },
+      "warning-icon-inverse": {
+        "$value": "#4e3406",
+        "$type": "color",
+        "$description": "warning — warning-icon-inverse"
+      }
+    },
+    "danger": {
+      "danger-surface": {
+        "$value": "#f7ebea",
+        "$type": "color",
+        "$description": "danger — danger-surface"
+      },
+      "danger-surface-inverse": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-surface-inverse"
+      },
+      "on-danger-surface": {
+        "$value": "#6b221a",
+        "$type": "color",
+        "$description": "danger — on-danger-surface"
+      },
+      "on-danger-surface-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "danger — on-danger-surface-inverse"
+      },
+      "danger-outline": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-outline"
+      },
+      "danger-icon": {
+        "$value": "#b2392b",
+        "$type": "color",
+        "$description": "danger — danger-icon"
+      },
+      "danger-icon-inverse": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "$description": "danger — danger-icon-inverse"
+      }
+    },
+    "decorative-green": {
+      "surface-deco-green": {
+        "$value": "#339639",
+        "$type": "color",
+        "$description": "decorative-green — surface-deco-green"
+      },
+      "on-surface-deco-green": {
+        "$value": "#e6f2e6",
+        "$type": "color",
+        "$description": "decorative-green — on-surface-deco-green"
+      }
+    }
+  }
+}
