@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import CheckboxRoad2 from './CheckboxRoad2.vue';
+import Checkbox from './Checkbox.vue';
 
 const meta = {
-  title: 'Components/CheckboxRoad2',
-  component: CheckboxRoad2 as any,
+  title: 'Components/Checkbox',
+  component: Checkbox as any,
   args: {
     state: 'Default',
     checked: false,
