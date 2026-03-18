@@ -291,3 +291,362 @@ No need to be reminded — always follow them.
 - Never leave a TODO without a comment explaining what's needed
 - Never use arbitrary Tailwind values — always use design tokens
 - If a Figma link is provided, always extract all visible variants before coding
+
+---
+
+## Figma Fidelity — Non Negotiable
+
+When a Figma component or frame is provided (via selection or URL),
+Claude's job is to be a pixel-perfect translator, not an interpreter.
+
+---
+
+### Before writing a single line of code
+
+1. Extract ALL information from Figma:
+   - Every variant (e.g. Primary, Secondary, Ghost, Destructive)
+   - Every size (e.g. sm, md, lg)
+   - Every state (default, hover, focus, active, disabled, loading, error)
+   - Every prop visible in Figma (label, icon, iconPosition, etc.)
+   - Every slot (leading icon, trailing icon, prefix, suffix)
+   - Exact spacing, radius, typography, color — all mapped to design tokens
+   - Motion/transition if visible in prototype
+
+2. Write a component spec BEFORE coding and wait for approval:
+
+   ## Component Spec — [ComponentName]
+
+   ### Variants
+   - variant: primary | secondary | ghost | destructive
+
+   ### Sizes
+   - size: sm | md | lg
+
+   ### States
+   - default, hover, focus, active, disabled, loading
+
+   ### Props
+   | Prop | Type | Default | Description |
+   |---|---|---|---|
+   | variant | 'primary' \| 'secondary' \| 'ghost' | 'primary' | Visual style |
+   | size | 'sm' \| 'md' \| 'lg' | 'md' | Component size |
+   | disabled | boolean | false | Disabled state |
+   | loading | boolean | false | Loading state |
+   | label | string | — | Button text |
+
+   ### Slots
+   - leading-icon
+   - trailing-icon
+
+   ### Design tokens used
+   - bg: color-brand-surface-primary
+   - text: color-brand-surface-on-primary
+   - radius: radius-button-default
+
+   "Does this spec match your Figma? Shall I proceed?"
+
+3. Wait for explicit approval before writing any code
+
+---
+
+### During development
+
+- Every spacing value → must match a design token exactly
+- Every color → must match a design token exactly
+- Every border-radius → must match a design token exactly
+- Every font size/weight/family → must match a design token exactly
+- If a value exists in Figma but has NO corresponding token →
+  stop and ask: "This value has no token: [value].
+  Should I create a new token, use the closest existing one,
+  or is this a one-off?"
+
+---
+
+### When perfect ISO is technically impossible
+
+1. Stop immediately — do not approximate silently
+2. Explain clearly:
+   "I can't reproduce [X] exactly because [reason].
+   Here are my options:
+   A) [Option A] — closest to Figma, minor visual difference
+   B) [Option B] — technically cleaner, slightly different
+   C) Create a new token for this value
+   Which do you prefer?"
+3. Wait for answer before proceeding
+4. Document the decision in README.md under
+   "## Known Deviations from Figma"
+
+---
+
+### Figma fidelity check (after coding)
+
+Report this table before asking for merge approval:
+
+| Item | Figma value | Token used | Match |
+|---|---|---|---|
+| Background | #005ab8 | color-button-primary | ✅ |
+| Border radius | 8px | radius-button-default | ✅ |
+| Font size | 16px | text-md | ✅ |
+| Padding | 12px 24px | spacing-3 spacing-6 | ✅ |
+
+If any row is ❌ → fix before asking to merge.
+
+---
+
+### What Claude NEVER does with Figma
+
+- Never starts coding without extracting the full spec first
+- Never approximates a value silently
+- Never invents a prop name — always uses Figma layer/variant name as reference
+- Never ignores a state visible in Figma
+- Never uses a hardcoded value when a token exists
+- Never considers a component done without the fidelity check table
+
+---
+
+## Git Workflow — Professional Standards
+
+Claude operates as a senior frontend developer on this project.
+Every task follows a professional, production-grade workflow.
+No shortcuts. No exceptions.
+
+---
+
+### Branch naming
+
+Never commit directly to main. Always branch.
+
+| Type | Pattern | Example |
+|---|---|---|
+| New component | feat/component-[name] | feat/component-button |
+| Update component | update/component-[name] | update/component-button |
+| New tokens | feat/tokens-[category] | feat/tokens-colors |
+| Bug fix | fix/[description] | fix/button-disabled-state |
+| Hotfix (urgent) | hotfix/[description] | hotfix/button-crash-prod |
+| Storybook | story/[component] | story/button |
+| Documentation | docs/[description] | docs/button-readme |
+| Refactor | refactor/[description] | refactor/token-naming |
+| Release | release/v[x.x.x] | release/v1.2.0 |
+
+---
+
+### Commit message format (Conventional Commits)
+
+type(scope): short description in imperative mood
+
+Types:
+- feat → new component or feature
+- update → changes to existing component
+- fix → bug fix
+- docs → documentation only
+- refactor → restructure without behavior change
+- tokens → design token changes
+- test → storybook stories, tests
+- chore → build, config, deps
+- breaking → breaking change (always explicit)
+
+Rules:
+- Max 72 characters for subject line
+- Use imperative mood ("add" not "added", "fix" not "fixed")
+- Reference ticket/issue if relevant in body
+- Mark breaking changes explicitly: "BREAKING CHANGE:" in body
+
+Examples:
+
+```
+feat(button): add loading state with spinner
+fix(input): correct disabled border using token color-outline-weak
+update(button): add ghost variant, update stories and README
+tokens(colors): add semantic danger tokens for all 3 modes
+docs(button): update props table, add usage rules and examples
+breaking(button): rename prop "type" to "variant" — update all usages
+```
+
+---
+
+### Self-review checklist
+
+Before asking for merge approval, Claude runs this checklist
+and reports every item:
+
+#### Code quality
+- [ ] vue-tsc --noEmit passes with zero errors
+- [ ] No arbitrary Tailwind values (only design tokens)
+- [ ] No hardcoded color, spacing or font values
+- [ ] No console.log or debug code left
+- [ ] No TODO left without an explanatory comment
+- [ ] Props are fully typed with TypeScript interfaces
+- [ ] All emits are declared and typed
+- [ ] Slots are documented
+
+#### Component completeness
+- [ ] All Figma variants implemented
+- [ ] All states handled: default, hover, focus, disabled, loading (if applicable)
+- [ ] Responsive behavior considered
+- [ ] Dark mode works with existing tokens
+- [ ] Contrast mode works with existing tokens
+
+#### Accessibility
+- [ ] Correct semantic HTML element used
+- [ ] aria-label or aria-labelledby present where needed
+- [ ] Keyboard navigation works (Tab, Enter, Space, Escape)
+- [ ] Focus ring visible and uses design token
+- [ ] Color is never the only indicator of state
+
+#### Documentation
+- [ ] README.md updated
+- [ ] Props table complete and accurate
+- [ ] Usage examples updated
+- [ ] Changelog entry added with date
+- [ ] Storybook stories cover all variants and states
+- [ ] Figma link present in Storybook story
+- [ ] Fidelity check table completed
+
+#### Tokens & build
+- [ ] Style Dictionary build passes
+- [ ] No existing component broken by token changes
+- [ ] tokens/build/ is gitignored and not committed
+
+---
+
+### Workflow for a NEW component
+
+1. Announce: "Starting feat/component-[name]"
+2. Create branch
+3. Read CLAUDE.md conventions before writing any code
+4. Extract full Figma spec → write Component Spec → wait for approval
+5. Create: Component.vue + README.md + Component.stories.ts
+6. Register in /components/index.ts
+7. Run full self-review checklist
+8. Complete fidelity check table
+9. Report all results (all must be ✅)
+10. Write PR description
+11. Ask: "All checks pass ✅ Ready to merge feat/component-[name] → main?"
+12. Wait for explicit approval
+13. After approval: merge, delete branch, confirm: "Merged and branch deleted ✅"
+
+### Workflow for UPDATING an existing component
+
+1. Announce: "Starting update/component-[name]"
+2. Create branch
+3. Read current component code + README before touching anything
+4. If Figma provided → re-extract full spec, compare with current implementation
+5. Make changes
+6. Update README.md changelog section
+7. Update Storybook stories if props/variants/states changed
+8. Run full self-review checklist
+9. Show a clear diff summary:
+   - What changed and why
+   - Breaking changes? Yes/No
+   - Components affected by this change
+10. Write PR description
+11. Ask: "All checks pass ✅ Ready to merge update/component-[name] → main?"
+12. Wait for explicit approval
+13. After approval: merge, delete branch, confirm: "Merged and branch deleted ✅"
+
+### Workflow for TOKENS update
+
+1. Announce: "Starting feat/tokens-[category]"
+2. Create branch
+3. Update token JSON files
+4. Run Style Dictionary build → must pass
+5. Audit: list every component that uses these tokens
+6. Spot-check each affected component in Storybook
+7. If a component breaks → fix it in the same branch
+8. Run self-review checklist (token section)
+9. Ask: "Tokens updated, build passes, [N] components verified ✅ Ready to merge?"
+10. Wait for explicit approval
+
+### Hotfix workflow
+
+1. Announce: "🚨 Hotfix — branching from main"
+2. Create hotfix/[description] from main
+3. Fix only the specific issue — no scope creep
+4. Run self-review checklist
+5. Ask: "Hotfix ready ✅ Urgent — merge hotfix → main?"
+6. After approval: merge, tag patch version, delete branch
+
+---
+
+### PR description format
+
+```
+## What
+[One sentence describing what this PR does]
+
+## Why
+[One sentence on why this change was needed]
+
+## Changes
+- [Bullet list of specific changes]
+
+## Variants & states implemented
+- [List from Figma spec]
+
+## Checklist
+[Paste checklist results with ✅ or ❌]
+
+## Fidelity check
+[Paste fidelity table]
+
+## Breaking changes
+None / [Description + migration path]
+
+## Storybook
+[Which stories to check]
+```
+
+---
+
+### Semantic versioning
+
+| Change type | Bump | Example |
+|---|---|---|
+| New component | minor | 1.0.0 → 1.1.0 |
+| Update (non-breaking) | patch | 1.1.0 → 1.1.1 |
+| Bug fix | patch | 1.1.1 → 1.1.2 |
+| Breaking change | major | 1.1.2 → 2.0.0 |
+| Tokens only (non-breaking) | patch | 2.0.0 → 2.0.1 |
+
+After every merge:
+1. Update version in package.json
+2. Add entry to CHANGELOG.md
+3. Commit: chore(release): bump version to vX.X.X
+
+### CHANGELOG.md format
+
+```
+## [1.1.0] - 2026-03-18
+
+### Added
+- Button component with 3 variants and 3 sizes
+
+### Changed
+- Surface tokens updated for dark mode contrast
+
+### Fixed
+- Input disabled border color now uses correct token
+
+### Breaking
+- None
+```
+
+---
+
+### What Claude NEVER does
+
+- Never commits directly to main
+- Never merges without explicit user approval
+- Never skips the self-review checklist
+- Never skips the fidelity check table
+- Never leaves a branch open after merge
+- Never force pushes
+- Never commits node_modules, tokens/build/, .env
+- Never ships a component without Storybook stories
+- Never uses a hardcoded value when a token exists
+- Never ignores a TypeScript error
+- Never approximates a Figma value silently
+- Never starts coding without the approved Component Spec
+- Never marks an accessibility item ✅ without actually checking it
+- Never bumps a major version without warning about breaking changes
+- Never starts a new task without reading CLAUDE.md first
