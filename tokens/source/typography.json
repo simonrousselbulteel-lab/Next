@@ -1,0 +1,97 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "$value": "Inter, system-ui, sans-serif",
+        "$type": "fontFamily",
+        "$description": "Primary sans-serif font stack"
+      },
+      "mono": {
+        "$value": "JetBrains Mono, Fira Code, monospace",
+        "$type": "fontFamily",
+        "$description": "Monospace font for code blocks"
+      }
+    },
+    "size": {
+      "xs": {
+        "$value": "0.75rem",
+        "$type": "dimension",
+        "$description": "12px — extra small text"
+      },
+      "sm": {
+        "$value": "0.875rem",
+        "$type": "dimension",
+        "$description": "14px — small text"
+      },
+      "base": {
+        "$value": "1rem",
+        "$type": "dimension",
+        "$description": "16px — base/body text"
+      },
+      "lg": {
+        "$value": "1.125rem",
+        "$type": "dimension",
+        "$description": "18px — large text"
+      },
+      "xl": {
+        "$value": "1.25rem",
+        "$type": "dimension",
+        "$description": "20px — extra large text"
+      },
+      "2xl": {
+        "$value": "1.5rem",
+        "$type": "dimension",
+        "$description": "24px — heading small"
+      },
+      "3xl": {
+        "$value": "1.875rem",
+        "$type": "dimension",
+        "$description": "30px — heading medium"
+      },
+      "4xl": {
+        "$value": "2.25rem",
+        "$type": "dimension",
+        "$description": "36px — heading large"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$value": "400",
+        "$type": "fontWeight",
+        "$description": "Normal weight"
+      },
+      "medium": {
+        "$value": "500",
+        "$type": "fontWeight",
+        "$description": "Medium weight"
+      },
+      "semibold": {
+        "$value": "600",
+        "$type": "fontWeight",
+        "$description": "Semibold weight"
+      },
+      "bold": {
+        "$value": "700",
+        "$type": "fontWeight",
+        "$description": "Bold weight"
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "$value": "1.25",
+        "$type": "number",
+        "$description": "Tight line height for headings"
+      },
+      "normal": {
+        "$value": "1.5",
+        "$type": "number",
+        "$description": "Normal line height for body text"
+      },
+      "relaxed": {
+        "$value": "1.75",
+        "$type": "number",
+        "$description": "Relaxed line height for readable prose"
+      }
+    }
+  }
+}

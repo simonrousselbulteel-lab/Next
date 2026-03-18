@@ -1,0 +1,24 @@
+{
+  "shadow": {
+    "sm": {
+      "$value": "0 1px 2px 0 rgba(0,0,0,0.05)",
+      "$type": "shadow",
+      "$description": "Subtle shadow for interactive elements"
+    },
+    "base": {
+      "$value": "0 2px 4px 0 rgba(0,0,0,0.10)",
+      "$type": "shadow",
+      "$description": "Default shadow for cards and dropdowns"
+    },
+    "md": {
+      "$value": "0 4px 8px -1px rgba(0,0,0,0.15)",
+      "$type": "shadow",
+      "$description": "Medium shadow for modals and elevated elements"
+    },
+    "lg": {
+      "$value": "0 8px 24px -4px rgba(0,0,0,0.20)",
+      "$type": "shadow",
+      "$description": "Large shadow for overlays and sheets"
+    }
+  }
+}

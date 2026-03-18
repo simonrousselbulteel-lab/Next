@@ -1,0 +1,140 @@
+{
+  "color": {
+    "primary": {
+      "$value": "#3b82f6",
+      "$type": "color",
+      "$description": "Brand primary color — blue-500"
+    },
+    "primary-hover": {
+      "$value": "#2563eb",
+      "$type": "color",
+      "$description": "Darker shade of primary for hover states — blue-600"
+    },
+    "primary-foreground": {
+      "$value": "#ffffff",
+      "$type": "color",
+      "$description": "Text color on primary background (high contrast)"
+    },
+    "secondary": {
+      "$value": "#8b5cf6",
+      "$type": "color",
+      "$description": "Brand secondary color — violet-500"
+    },
+    "secondary-hover": {
+      "$value": "#7c3aed",
+      "$type": "color",
+      "$description": "Darker shade of secondary for hover states — violet-600"
+    },
+    "secondary-foreground": {
+      "$value": "#ffffff",
+      "$type": "color",
+      "$description": "Text color on secondary background"
+    },
+    "neutral": {
+      "50": {
+        "$value": "#fafafa",
+        "$type": "color",
+        "$description": "Lightest neutral, near-white"
+      },
+      "100": {
+        "$value": "#f5f5f5",
+        "$type": "color",
+        "$description": "Very light neutral"
+      },
+      "200": {
+        "$value": "#e5e5e5",
+        "$type": "color",
+        "$description": "Light neutral, borders"
+      },
+      "300": {
+        "$value": "#d4d4d4",
+        "$type": "color",
+        "$description": "Medium-light neutral"
+      },
+      "400": {
+        "$value": "#a3a3a3",
+        "$type": "color",
+        "$description": "Medium neutral, placeholder text"
+      },
+      "500": {
+        "$value": "#737373",
+        "$type": "color",
+        "$description": "Medium neutral, muted text"
+      },
+      "600": {
+        "$value": "#525252",
+        "$type": "color",
+        "$description": "Medium-dark neutral, secondary text"
+      },
+      "700": {
+        "$value": "#404040",
+        "$type": "color",
+        "$description": "Dark neutral, primary text"
+      },
+      "800": {
+        "$value": "#262626",
+        "$type": "color",
+        "$description": "Very dark neutral"
+      },
+      "900": {
+        "$value": "#171717",
+        "$type": "color",
+        "$description": "Darkest neutral, near-black"
+      }
+    },
+    "background": {
+      "$value": "#ffffff",
+      "$type": "color",
+      "$description": "Default page/surface background"
+    },
+    "surface": {
+      "$value": "#fafafa",
+      "$type": "color",
+      "$description": "Card/panel surface color"
+    },
+    "border": {
+      "$value": "#e5e5e5",
+      "$type": "color",
+      "$description": "Default border color"
+    },
+    "text": {
+      "primary": {
+        "$value": "#171717",
+        "$type": "color",
+        "$description": "Primary body text color"
+      },
+      "secondary": {
+        "$value": "#525252",
+        "$type": "color",
+        "$description": "Secondary/muted text color"
+      },
+      "disabled": {
+        "$value": "#a3a3a3",
+        "$type": "color",
+        "$description": "Disabled state text color"
+      }
+    },
+    "feedback": {
+      "success": {
+        "$value": "#22c55e",
+        "$type": "color",
+        "$description": "Success state color — green-500"
+      },
+      "warning": {
+        "$value": "#f59e0b",
+        "$type": "color",
+        "$description": "Warning state color — amber-500"
+      },
+      "error": {
+        "$value": "#ef4444",
+        "$type": "color",
+        "$description": "Error/destructive state color — red-500"
+      },
+      "info": {
+        "$value": "#3b82f6",
+        "$type": "color",
+        "$description": "Informational state color — blue-500"
+      }
+    }
+  }
+}
