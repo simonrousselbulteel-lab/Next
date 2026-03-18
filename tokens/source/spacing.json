@@ -5,6 +5,11 @@
       "$type": "dimension",
       "$description": "No spacing"
     },
+    "0-5": {
+      "$value": "0.125rem",
+      "$type": "dimension",
+      "$description": "2px"
+    },
     "1": {
       "$value": "0.25rem",
       "$type": "dimension",

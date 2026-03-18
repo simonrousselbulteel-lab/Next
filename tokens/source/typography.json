@@ -2,9 +2,9 @@
   "font": {
     "family": {
       "sans": {
-        "$value": "Inter, system-ui, sans-serif",
+        "$value": "DM Sans, system-ui, sans-serif",
         "$type": "fontFamily",
-        "$description": "Primary sans-serif font stack"
+        "$description": "Primary sans-serif font stack (matches Figma: DM Sans)"
       },
       "mono": {
         "$value": "JetBrains Mono, Fira Code, monospace",

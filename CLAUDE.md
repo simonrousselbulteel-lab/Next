@@ -25,6 +25,7 @@ design-system/
 ├── tokens/
 │   ├── source/                 ← DTCG JSON token files (edit these)
 │   │   ├── colors.json
+│   │   ├── focus.json
 │   │   ├── typography.json
 │   │   ├── spacing.json
 │   │   ├── radius.json

@@ -1,0 +1,23 @@
+{
+  "focus": {
+    "ring": {
+      "width": {
+        "$value": "0.1875rem",
+        "$type": "dimension",
+        "$description": "Focus ring stroke width (3px)."
+      },
+      "radius": {
+        "$value": "0.4375rem",
+        "$type": "dimension",
+        "$description": "Focus ring corner radius (7px)."
+      },
+      "size": {
+        "checkbox": {
+          "$value": "1.625rem",
+          "$type": "dimension",
+          "$description": "Focus ring size for 20px checkbox (26px)."
+        }
+      }
+    }
+  }
+}
