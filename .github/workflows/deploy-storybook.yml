@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+      - 'feat/**'
+      - 'update/**'
+      - 'fix/**'
+      - 'claude/**'
+  pull_request:
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 jobs:
@@ -31,3 +37,5 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # On PRs, only run visual tests (no full CI exit code gate)
+          exitOnceUploaded: ${{ github.event_name == 'pull_request' }}
