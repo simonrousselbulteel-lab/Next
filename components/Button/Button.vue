@@ -11,6 +11,11 @@ import { computed } from 'vue';
  *   by the `group` / `group-hover:` pattern on the child background layer and
  *   by `hover:` on the root for box-shadow transitions.
  *
+ *   Focus ring is implemented via box-shadow composition (--btn-focus-shadow)
+ *   to avoid conflicts with the existing box-shadow border system. The ring
+ *   uses --ds-global-ring-focus (periwinkle-200) with a 3px white gap, matching
+ *   the Figma button/focus effect style.
+ *
  * Known deviations from Figma (see README.md):
  *   1. Ghost on-surface uses --ds-button-outlined-on-surface (dark text) to
  *      match the Figma visual; the semantic token button.ghost.on-surface
@@ -22,8 +27,8 @@ import { computed } from 'vue';
 const props = withDefaults(defineProps<{
   /** Visual style — matches Figma "type" prop */
   type?: 'primary' | 'secondary' | 'tertiary' | 'outlined' | 'ghost' | 'inverted';
-  /** Color intent — "destructive" only affects primary and outlined types */
-  intent?: 'default' | 'destructive';
+  /** Color intent — maps to Figma "intent" prop */
+  intent?: 'default' | 'destructive' | 'alternative';
   /** Size variant */
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   /** Disabled state */
@@ -59,15 +64,55 @@ const FONT_SIZE_SUFFIX: Record<string, string> = {
 
 /**
  * Resolve the color-token namespace based on type + intent.
- * Destructive intent overrides primary → "destructive-primary"
- * and outlined → "destructive-outlined". All other types are unchanged.
+ *
+ * Mapping table (Figma intent × type → CSS token prefix):
+ *   default      + primary    → primary
+ *   default      + secondary  → secondary
+ *   default      + tertiary   → tertiary
+ *   default      + outlined   → outlined
+ *   default      + ghost      → ghost
+ *   default      + inverted   → inverted
+ *   destructive  + primary    → destructive-primary
+ *   destructive  + secondary  → destructive-outlined  (same visual treatment)
+ *   destructive  + outlined   → destructive-outlined
+ *   alternative  + primary    → alternative-primary
+ *   alternative  + secondary  → alternative-secondary
+ *   alternative  + tertiary   → alternative-brand      (Figma "tertiary" = token "brand")
  */
 const tokenPrefix = computed(() => {
   if (props.intent === 'destructive') {
-    if (props.type === 'primary')  return 'destructive-primary';
-    if (props.type === 'outlined') return 'destructive-outlined';
+    if (props.type === 'primary') return 'destructive-primary';
+    // Figma "destructive secondary" uses the same tokens as destructive outlined
+    if (props.type === 'secondary' || props.type === 'outlined') return 'destructive-outlined';
+  }
+  if (props.intent === 'alternative') {
+    if (props.type === 'primary') return 'alternative-primary';
+    if (props.type === 'secondary') return 'alternative-secondary';
+    // Figma "alternative tertiary" maps to the "brand" token group (orange)
+    if (props.type === 'tertiary') return 'alternative-brand';
   }
   return props.type as string;
+});
+
+/**
+ * Determine the shadow "family" for the current type + intent.
+ * This controls which box-shadow pattern is applied (filled, outlined,
+ * subtle, or none).
+ */
+type ShadowFamily = 'filled' | 'outlined' | 'subtle' | 'none';
+const shadowFamily = computed<ShadowFamily>(() => {
+  const pfx = tokenPrefix.value;
+  if (pfx === 'ghost') return 'none';
+  if (
+    pfx === 'primary' || pfx === 'inverted' ||
+    pfx === 'destructive-primary' ||
+    pfx === 'alternative-primary'
+  ) return 'filled';
+  if (
+    pfx === 'outlined' || pfx === 'destructive-outlined'
+  ) return 'outlined';
+  // secondary, tertiary, alternative-secondary, alternative-brand
+  return 'subtle';
 });
 
 /**
@@ -79,6 +124,7 @@ const cssVars = computed<Record<string, string>>(() => {
   const pfx = tokenPrefix.value;
   const s   = props.size;
   const io  = props.iconOnly;
+  const sf  = shadowFamily.value;
 
   // ── Background (surface) ────────────────────────────────────────────────────
   const bg      = `var(--ds-button-${pfx}-surface)`;
@@ -93,48 +139,63 @@ const cssVars = computed<Record<string, string>>(() => {
 
   // ── Box-shadow (drop + inset border) ────────────────────────────────────────
   // Shadow values are not tokenised. They map to two Figma effect styles:
-  //   button/default     — used by primary & inverted (stronger)
-  //   button/default-alt — used by secondary, tertiary, outlined (very subtle)
-  // Ghost has no shadow.
+  //   button/default     — filled types (primary, inverted, destructive-primary)
+  //   button/default-alt — subtle types (secondary, tertiary, alternative-brand)
+  // Outlined types get a visible colored border. Ghost has no shadow at rest.
   let shadowRest: string;
   let shadowHover: string;
 
-  if (pfx === 'primary' || pfx === 'inverted' || pfx === 'destructive-primary') {
-    // Decorative 2px semi-opaque white border + medium inner depth
+  if (sf === 'filled') {
     const bw = `var(--ds-button-control-border-style-${s}, 2px)`;
+    const borderColor = pfx === 'inverted'
+      ? 'rgba(255,255,255,0.08)'
+      : `var(--ds-button-primary-border, rgba(255,255,255,0.12))`;
     shadowRest  = [
       '0px 1px 2px 0px rgba(10,13,18,0.05)',
-      `inset 0 0 0 ${bw} var(--ds-button-primary-border, rgba(255,255,255,0.12))`,
+      `inset 0 0 0 ${bw} ${borderColor}`,
       'inset 0 -2px 0 0 rgba(10,13,18,0.05)',
-    ].join(',');
-    shadowHover = shadowRest; // shadow doesn't change on hover for these types
+    ].join(', ');
+    shadowHover = shadowRest;
 
-  } else if (pfx === 'outlined' || pfx === 'destructive-outlined') {
-    // 1px coloured border, very subtle depth
+  } else if (sf === 'outlined') {
     const bw = `var(--ds-button-control-border-default-${s}, 1px)`;
     shadowRest  = [
       '0px 1px 2px 0px rgba(10,13,18,0.01)',
       `inset 0 0 0 ${bw} var(--ds-button-${pfx}-border)`,
       'inset 0 -2px 0 0 rgba(10,13,18,0.01)',
-    ].join(',');
+    ].join(', ');
     shadowHover = shadowRest;
 
-  } else if (pfx === 'secondary') {
+  } else if (sf === 'subtle') {
+    // secondary, tertiary, alternative-secondary, alternative-brand
     const bwHover = `var(--ds-button-control-border-hover-${s}, 1.5px)`;
-    shadowRest  = '0px 1px 2px 0px rgba(10,13,18,0.01),inset 0 0 0 1px rgba(10,13,18,0.02),inset 0 -2px 0 0 rgba(10,13,18,0.01)';
-    shadowHover = `0px 1px 2px 0px rgba(10,13,18,0.01),inset 0 0 0 ${bwHover} var(--ds-button-secondary-border-hover)`;
-
-  } else if (pfx === 'tertiary') {
-    const bwHover = `var(--ds-button-control-border-hover-${s}, 1.5px)`;
-    shadowRest  = '0px 1px 2px 0px rgba(10,13,18,0.01),inset 0 0 0 1px rgba(10,13,18,0.02),inset 0 -2px 0 0 rgba(10,13,18,0.01)';
-    shadowHover = `0px 1px 2px 0px rgba(10,13,18,0.01),inset 0 0 0 ${bwHover} var(--ds-button-tertiary-border-hover)`;
+    const borderHoverToken = `var(--ds-button-${pfx}-border-hover, rgba(10,13,18,0.06))`;
+    shadowRest  = [
+      '0px 1px 2px 0px rgba(10,13,18,0.01)',
+      'inset 0 0 0 1px rgba(10,13,18,0.02)',
+      'inset 0 -2px 0 0 rgba(10,13,18,0.01)',
+    ].join(', ');
+    shadowHover = [
+      '0px 1px 2px 0px rgba(10,13,18,0.01)',
+      `inset 0 0 0 ${bwHover} ${borderHoverToken}`,
+    ].join(', ');
 
   } else {
-    // ghost — no shadow at rest, border appears on hover
+    // ghost — transparent at rest, border appears on hover
+    // Use transparent shadow instead of 'none' to allow focus shadow composition
+    shadowRest  = '0 0 0 0 transparent';
     const bwHover = `var(--ds-button-control-border-hover-${s}, 2px)`;
-    shadowRest  = 'none';
     shadowHover = `inset 0 0 0 ${bwHover} var(--ds-button-ghost-border-hover)`;
   }
+
+  // ── Focus ring shadow ───────────────────────────────────────────────────────
+  // Figma button/focus effect: 3px white gap + 3px ring at global/ring-focus.
+  // Composed on top of the resting shadow so the border remains visible.
+  const focusShadow = [
+    shadowRest,
+    '0 0 0 3px #ffffff',
+    '0 0 0 6px var(--ds-global-ring-focus, #9fbfff)',
+  ].join(', ');
 
   return {
     // Colours
@@ -144,6 +205,7 @@ const cssVars = computed<Record<string, string>>(() => {
     // Shadows
     '--btn-shadow':       shadowRest,
     '--btn-shadow-hover': shadowHover,
+    '--btn-focus-shadow': focusShadow,
     // Sizing — all delegated to design tokens
     '--btn-min-h':        `var(--ds-button-control-min-height-${s})`,
     '--btn-px':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}px-${s})`,
@@ -166,6 +228,7 @@ const cssVars = computed<Record<string, string>>(() => {
     :style="cssVars"
     class="group relative inline-flex cursor-pointer select-none items-center justify-center overflow-hidden
            [box-shadow:var(--btn-shadow)] hover:[box-shadow:var(--btn-shadow-hover)]
+           focus-visible:[box-shadow:var(--btn-focus-shadow)]
            transition-[box-shadow] duration-150
            min-h-[var(--btn-min-h)] h-[var(--btn-min-h)]
            px-[var(--btn-px)] py-[var(--btn-py)]
@@ -176,10 +239,7 @@ const cssVars = computed<Record<string, string>>(() => {
            text-[length:var(--btn-font-size)]
            text-[color:var(--btn-color)]
            whitespace-nowrap
-           focus-visible:outline-none
-           focus-visible:ring-[length:var(--ds-focus-ring-width,3px)]
-           focus-visible:ring-[color:var(--ds-input-input-outline-variant,#004293)]
-           focus-visible:ring-offset-2"
+           focus-visible:outline-none"
     :class="{ 'opacity-40 pointer-events-none': disabled }"
   >
     <!--
