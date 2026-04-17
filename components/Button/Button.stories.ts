@@ -13,8 +13,8 @@ const meta = {
     },
     intent: {
       control: 'select',
-      options: ['default', 'destructive'],
-      description: 'Color intent — destructive only affects primary and outlined',
+      options: ['default', 'destructive', 'alternative'],
+      description: 'Color intent — destructive affects primary/secondary/outlined, alternative affects primary/secondary/tertiary',
     },
     size: {
       control: 'select',
@@ -71,7 +71,27 @@ export const Playground: Story = {
   }),
 };
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+// ── All Types (Default intent) ───────────────────────────────────────────────
+export const AllTypes: Story = {
+  name: 'All Types — Default',
+  render: () => ({
+    components: { Button },
+    template: `
+      <div class="flex flex-wrap items-center gap-4">
+        <Button type="primary">Primary</Button>
+        <Button type="secondary">Secondary</Button>
+        <Button type="tertiary">Tertiary</Button>
+        <Button type="outlined">Outlined</Button>
+        <Button type="ghost">Ghost</Button>
+        <div class="flex items-center rounded-xl px-4 py-3" style="background: var(--ds-button-inverted-surface, #202c46);">
+          <Button type="inverted">Inverted</Button>
+        </div>
+      </div>
+    `,
+  }),
+};
+
+// ── Individual Types ─────────────────────────────────────────────────────────
 export const Primary: Story = {
   render: () => ({
     components: { Button },
@@ -119,27 +139,7 @@ export const Inverted: Story = {
   }),
 };
 
-// ── All types at once ─────────────────────────────────────────────────────────
-export const AllTypes: Story = {
-  name: 'All Types',
-  render: () => ({
-    components: { Button },
-    template: `
-      <div class="flex flex-wrap items-center gap-4">
-        <Button type="primary">Primary</Button>
-        <Button type="secondary">Secondary</Button>
-        <Button type="tertiary">Tertiary</Button>
-        <Button type="outlined">Outlined</Button>
-        <Button type="ghost">Ghost</Button>
-        <div class="flex items-center rounded-xl px-4 py-3" style="background: var(--ds-button-inverted-surface, #202c46);">
-          <Button type="inverted">Inverted</Button>
-        </div>
-      </div>
-    `,
-  }),
-};
-
-// ── Sizes ─────────────────────────────────────────────────────────────────────
+// ── Sizes ────────────────────────────────────────────────────────────────────
 export const AllSizes: Story = {
   name: 'All Sizes',
   render: () => ({
@@ -156,7 +156,7 @@ export const AllSizes: Story = {
   }),
 };
 
-// ── States ────────────────────────────────────────────────────────────────────
+// ── Disabled ─────────────────────────────────────────────────────────────────
 export const Disabled: Story = {
   render: () => ({
     components: { Button },
@@ -172,20 +172,52 @@ export const Disabled: Story = {
   }),
 };
 
-// ── Destructive intent ────────────────────────────────────────────────────────
+// ── Destructive intent ──────────────────────────────────────────────────────
 export const Destructive: Story = {
+  name: 'Intent — Destructive',
   render: () => ({
     components: { Button },
     template: `
       <div class="flex flex-wrap items-center gap-4">
         <Button type="primary" intent="destructive">Delete</Button>
-        <Button type="outlined" intent="destructive">Cancel</Button>
+        <Button type="secondary" intent="destructive">Cancel</Button>
+        <Button type="outlined" intent="destructive">Remove</Button>
       </div>
     `,
   }),
 };
 
-// ── With icons ────────────────────────────────────────────────────────────────
+// ── Alternative intent ──────────────────────────────────────────────────────
+export const Alternative: Story = {
+  name: 'Intent — Alternative',
+  render: () => ({
+    components: { Button },
+    template: `
+      <div class="flex flex-wrap items-center gap-4">
+        <Button type="primary" intent="alternative">Primary</Button>
+        <Button type="secondary" intent="alternative">Secondary</Button>
+        <Button type="tertiary" intent="alternative">Brand</Button>
+      </div>
+    `,
+  }),
+};
+
+// ── All Intents × Primary type ──────────────────────────────────────────────
+export const AllIntents: Story = {
+  name: 'All Intents (primary)',
+  render: () => ({
+    components: { Button },
+    template: `
+      <div class="flex flex-wrap items-center gap-4">
+        <Button type="primary" intent="default">Default</Button>
+        <Button type="primary" intent="destructive">Destructive</Button>
+        <Button type="primary" intent="alternative">Alternative</Button>
+      </div>
+    `,
+  }),
+};
+
+// ── With icons ──────────────────────────────────────────────────────────────
 export const WithLeadingIcon: Story = {
   name: 'With Leading Icon',
   render: () => ({
@@ -251,7 +283,7 @@ export const IconOnly: Story = {
   }),
 };
 
-// ── As link ───────────────────────────────────────────────────────────────────
+// ── As link ─────────────────────────────────────────────────────────────────
 export const AsLink: Story = {
   name: 'As Link (tag="a")',
   render: () => ({
