@@ -1,6 +1,6 @@
 # Button
 
-Primary interactive element. Supports 6 visual types, 2 intents, 5 sizes,
+Primary interactive element. Supports 6 visual types, 3 intents, 5 sizes,
 leading/trailing icon slots, and an icon-only square layout.
 
 **Figma:** [Button — node 17187:1090](https://www.figma.com/design/zTOrsaTZ0I7JHoBg7bC46z/Next?node-id=17187-1090&m=dev)
@@ -33,6 +33,12 @@ leading/trailing icon slots, and an icon-only square layout.
 <!-- Destructive primary -->
 <Button type="primary" intent="destructive">Delete account</Button>
 
+<!-- Destructive secondary -->
+<Button type="secondary" intent="destructive">Cancel</Button>
+
+<!-- Alternative brand (orange) -->
+<Button type="tertiary" intent="alternative">Brand action</Button>
+
 <!-- As anchor -->
 <Button tag="a" href="/path">Go somewhere</Button>
 ```
@@ -44,7 +50,7 @@ leading/trailing icon slots, and an icon-only square layout.
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `type` | `'primary' \| 'secondary' \| 'tertiary' \| 'outlined' \| 'ghost' \| 'inverted'` | `'primary'` | Visual style — maps to Figma "type" prop |
-| `intent` | `'default' \| 'destructive'` | `'default'` | Color intent — `destructive` only affects `primary` and `outlined` types |
+| `intent` | `'default' \| 'destructive' \| 'alternative'` | `'default'` | Color intent — see Intent mapping table below |
 | `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl'` | `'md'` | Size variant |
 | `disabled` | `boolean` | `false` | Disabled state — visually dimmed, interaction blocked |
 | `iconOnly` | `boolean` | `false` | Square icon-only layout; switches to icon-only padding |
@@ -89,7 +95,25 @@ leading/trailing icon slots, and an icon-only square layout.
 | Value | Affected types | Description |
 |---|---|---|
 | `default` | all | Standard brand palette |
-| `destructive` | `primary`, `outlined` | Red palette for irreversible actions |
+| `destructive` | `primary`, `secondary`, `outlined` | Red palette for irreversible actions |
+| `alternative` | `primary`, `secondary`, `tertiary` | Alternative palette — tertiary maps to brand/orange tokens |
+
+### Intent × Type → Token Mapping
+
+| Intent | Type | Token prefix | Surface color |
+|---|---|---|---|
+| default | primary | `primary` | blue-700 |
+| default | secondary | `secondary` | blue-50 |
+| default | tertiary | `tertiary` | neutral-100 |
+| default | outlined | `outlined` | transparent |
+| default | ghost | `ghost` | transparent |
+| default | inverted | `inverted` | periwinkle-800 |
+| destructive | primary | `destructive-primary` | red-700 |
+| destructive | secondary | `destructive-outlined` | transparent (reuses outlined tokens) |
+| destructive | outlined | `destructive-outlined` | transparent |
+| alternative | primary | `alternative-primary` | blue-700 |
+| alternative | secondary | `alternative-secondary` | blue-50 |
+| alternative | tertiary | `alternative-brand` | orange (brand secondary) |
 
 ---
 
@@ -125,35 +149,21 @@ leading/trailing icon slots, and an icon-only square layout.
 ### Colours (semantic, per type)
 | Token | CSS var |
 |---|---|
-| `button.primary.surface` | `--ds-button-primary-surface` |
-| `button.primary.surface-hover` | `--ds-button-primary-surface-hover` |
-| `button.primary.on-surface` | `--ds-button-primary-on-surface` |
-| `button.primary.border` | `--ds-button-primary-border` |
-| `button.secondary.surface` | `--ds-button-secondary-surface` |
-| `button.secondary.surface-hover` | `--ds-button-secondary-surface-hover` |
-| `button.secondary.on-surface` | `--ds-button-secondary-on-surface` |
-| `button.secondary.border-hover` | `--ds-button-secondary-border-hover` |
-| `button.tertiary.surface` | `--ds-button-tertiary-surface` |
-| `button.tertiary.surface-hover` | `--ds-button-tertiary-surface-hover` |
-| `button.tertiary.on-surface` | `--ds-button-tertiary-on-surface` |
-| `button.tertiary.border-hover` | `--ds-button-tertiary-border-hover` |
-| `button.outlined.surface` | `--ds-button-outlined-surface` |
-| `button.outlined.surface-hover` | `--ds-button-outlined-surface-hover` |
-| `button.outlined.on-surface` | `--ds-button-outlined-on-surface` |
-| `button.outlined.border` | `--ds-button-outlined-border` |
-| `button.ghost.surface` | `--ds-button-ghost-surface` |
-| `button.ghost.surface-hover` | `--ds-button-ghost-surface-hover` |
-| `button.ghost.border-hover` | `--ds-button-ghost-border-hover` |
-| `button.inverted.surface` | `--ds-button-inverted-surface` |
-| `button.inverted.surface-hover` | `--ds-button-inverted-surface-hover` |
-| `button.inverted.on-surface` | `--ds-button-inverted-on-surface` |
-| `button.destructive.primary-surface` | `--ds-button-destructive-primary-surface` |
-| `button.destructive.primary-surface-hover` | `--ds-button-destructive-primary-surface-hover` |
-| `button.destructive.primary-on-surface` | `--ds-button-destructive-primary-on-surface` |
-| `button.destructive.outlined-surface` | `--ds-button-destructive-outlined-surface` |
-| `button.destructive.outlined-surface-hover` | `--ds-button-destructive-outlined-surface-hover` |
-| `button.destructive.outlined-on-surface` | `--ds-button-destructive-outlined-on-surface` |
-| `button.destructive.outlined-border` | `--ds-button-destructive-outlined-border` |
+| `button.{type}.surface` | `--ds-button-{type}-surface` |
+| `button.{type}.surface-hover` | `--ds-button-{type}-surface-hover` |
+| `button.{type}.on-surface` | `--ds-button-{type}-on-surface` |
+| `button.{type}.border` | `--ds-button-{type}-border` |
+| `button.{type}.border-hover` | `--ds-button-{type}-border-hover` |
+| `button.destructive.primary-*` | `--ds-button-destructive-primary-*` |
+| `button.destructive.outlined-*` | `--ds-button-destructive-outlined-*` |
+| `button.alternative.primary-*` | `--ds-button-alternative-primary-*` |
+| `button.alternative.secondary-*` | `--ds-button-alternative-secondary-*` |
+| `button.alternative.brand-*` | `--ds-button-alternative-brand-*` |
+
+### Focus ring
+| Token | CSS var | Value |
+|---|---|---|
+| `global.ring-focus` | `--ds-global-ring-focus` | periwinkle-200 (#9fbfff) |
 
 ### Typography
 | Token | CSS var |
@@ -174,7 +184,7 @@ leading/trailing icon slots, and an icon-only square layout.
 - `disabled` on `<button>` blocks interaction natively; `<a>` uses `aria-disabled="true"`, `tabindex="-1"`, and `pointer-events: none`.
 - Icon-only buttons **must** receive `aria-label` from the parent.
 - Icon slots are wrapped with `aria-hidden="true"` to avoid redundant announcements.
-- Focus ring uses `focus-visible` (keyboard-only) with `--ds-focus-ring-width` and `--ds-input-input-outline-variant` tokens.
+- Focus ring uses `focus-visible` (keyboard-only) with a 3px white gap + 3px periwinkle ring via box-shadow composition, matching the Figma `button/focus` effect style.
 - Colour is never the sole indicator of state — shape, text, and interactive affordances are always present.
 
 ---
@@ -183,13 +193,24 @@ leading/trailing icon slots, and an icon-only square layout.
 
 | Item | Figma value | Implementation | Reason |
 |---|---|---|---|
-| Ghost on-surface | `--button/outlined/on-surface` (periwinkle-700) | `--ds-button-outlined-on-surface` | Semantic token `button.ghost.on-surface` = white; white text is invisible on light backgrounds. Figma visual confirms dark text. |
+| Ghost on-surface | `button.ghost.on-surface` (white) | `--ds-button-outlined-on-surface` (periwinkle-700) | Semantic token is white; white text is invisible on light backgrounds. Figma visual confirms dark text. |
 | Button shadows | `button/default` / `button/default-alt` effect styles | Hardcoded `rgba` values | Shadow effects are not yet tokenised in `tokens/source/shadows.json`. |
-| Line-height | 20px (sm/md), 24px (lg/xl), 26px (xxl) | `--ds-font-line-height-normal` (1.5) | No button-specific line-height tokens exist. Height is controlled by `min-height` + padding tokens; visual impact is negligible. |
+| Line-height | 20px (sm/md), 24px (lg/xl), 26px (xxl) | `--ds-font-line-height-normal` (1.5) | No button-specific line-height tokens exist. Visual impact is negligible. |
+| Alternative primary hover | Distinct hover in Figma | Falls back to rest surface | No `alternative.primary-surface-hover` token exists. |
 
 ---
 
 ## Changelog
+
+### 2026-04-16 — Fix token loading, add alternative intent, fix focus ring
+- Fixed semantic CSS import (was pointing to non-existent files)
+- Added `alternative` intent with 3 sub-types (primary, secondary, brand/tertiary)
+- Added `destructive` + `secondary` mapping (reuses outlined tokens)
+- Replaced broken focus ring (was using wrong token `--ds-input-input-outline-variant` = black) with correct `--ds-global-ring-focus` (periwinkle-200) via box-shadow composition
+- Fixed ghost shadow from `none` to `0 0 0 0 transparent` to allow focus shadow composition
+- Fixed inverted border color to distinct rgba value
+- Updated stories with Alternative and Destructive Secondary
+- Updated README with intent × type mapping table
 
 ### 2026-04-15 — Initial implementation
 - Added `Button` component with 6 types × 2 intents × 5 sizes
