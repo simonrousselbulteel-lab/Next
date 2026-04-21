@@ -8,8 +8,8 @@ export interface SplitButtonItem {
 }
 
 const props = withDefaults(defineProps<{
-  /** Visual style — same mapping as Button */
-  type?: 'primary' | 'secondary' | 'tertiary' | 'outlined' | 'ghost';
+  /** Visual style — ghost excluded (invisible border makes the split ambiguous) */
+  type?: 'primary' | 'secondary' | 'tertiary' | 'outlined';
   /** Size variant */
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   /** Disables both main action and dropdown trigger */
@@ -83,8 +83,6 @@ const cssVars = computed<Record<string, string>>(() => {
       `inset 0 0 0 var(--ds-button-control-border-default-${s}, 1px) var(--ds-button-outlined-border)`,
       'inset 0 -2px 0 0 rgba(10,13,18,0.01)',
     ].join(', ');
-  } else if (pfx === 'ghost') {
-    shadow = '0 0 0 0 transparent';
   } else {
     // secondary, tertiary
     shadow = [
@@ -200,10 +198,14 @@ onUnmounted(() => document.removeEventListener('click', onDocumentClick));
   <div
     ref="wrapperRef"
     :style="cssVars"
-    class="relative inline-block rounded-[var(--sbtn-radius)]"
-    :class="hasFocus
-      ? 'outline outline-2 outline-offset-2 [outline-color:var(--ds-global-ring-focus,#9fbfff)]'
-      : 'outline-none'"
+    class="relative inline-block rounded-[var(--sbtn-radius)]
+           transition-transform duration-100 active:scale-[0.97]"
+    :class="[
+      hasFocus
+        ? 'outline outline-2 outline-offset-2 [outline-color:var(--ds-global-ring-focus,#9fbfff)]'
+        : 'outline-none',
+      disabled ? 'pointer-events-none cursor-not-allowed' : '',
+    ]"
     @focusin="onFocusIn"
     @focusout="onFocusOut"
   >
@@ -216,7 +218,6 @@ onUnmounted(() => document.removeEventListener('click', onDocumentClick));
              [font-family:var(--ds-font-family-sans)]
              [font-size:var(--sbtn-font-size)]
              [font-weight:var(--ds-font-weight-bold)]"
-      :class="{ 'pointer-events-none cursor-not-allowed': disabled }"
     >
 
       <!-- ── Main action ───────────────────────────────────────────────────── -->
