@@ -33,6 +33,8 @@ const props = withDefaults(defineProps<{
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   /** Disabled state */
   disabled?: boolean;
+  /** Pill / fully-rounded radius — uses button.control.radius.rounded (999px) instead of the size token */
+  rounded?: boolean;
   /** Square icon-only layout — switches to icon-only padding; place icon in default slot */
   iconOnly?: boolean;
   /** Root HTML element */
@@ -44,6 +46,7 @@ const props = withDefaults(defineProps<{
   intent: 'default',
   size: 'md',
   disabled: false,
+  rounded: false,
   iconOnly: false,
   tag: 'button',
   nativeType: 'button',
@@ -125,6 +128,31 @@ const cssVars = computed<Record<string, string>>(() => {
   const s   = props.size;
   const io  = props.iconOnly;
   const sf  = shadowFamily.value;
+
+  // ── Disabled state — universal gray tokens regardless of variant ───────────
+  // Figma: default/surface-disabled + default/on-surface-disabled.
+  // No shadow visible in disabled state.
+  const radiusToken = props.rounded
+    ? 'var(--ds-button-control-radius-rounded)'
+    : `var(--ds-button-control-radius-${s})`;
+
+  if (props.disabled) {
+    return {
+      '--btn-bg':           'var(--ds-default-surface-disabled)',
+      '--btn-bg-hover':     'var(--ds-default-surface-disabled)',
+      '--btn-color':        'var(--ds-default-on-surface-disabled)',
+      '--btn-shadow':       '0 0 0 0 transparent',
+      '--btn-shadow-hover': '0 0 0 0 transparent',
+      '--btn-focus-shadow': '0 0 0 0 transparent',
+      '--btn-min-h':        `var(--ds-button-control-min-height-${s})`,
+      '--btn-px':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}px-${s})`,
+      '--btn-py':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}py-${s})`,
+      '--btn-gap':          `var(--ds-button-control-space-between-${s})`,
+      '--btn-radius':       radiusToken,
+      '--btn-icon-size':    `var(--ds-button-control-icon-size-${s})`,
+      '--btn-font-size':    `var(--ds-font-size-${FONT_SIZE_SUFFIX[s]})`,
+    };
+  }
 
   // ── Background (surface) ────────────────────────────────────────────────────
   const bg      = `var(--ds-button-${pfx}-surface)`;
@@ -211,7 +239,7 @@ const cssVars = computed<Record<string, string>>(() => {
     '--btn-px':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}px-${s})`,
     '--btn-py':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}py-${s})`,
     '--btn-gap':          `var(--ds-button-control-space-between-${s})`,
-    '--btn-radius':       `var(--ds-button-control-radius-${s})`,
+    '--btn-radius':       radiusToken,
     '--btn-icon-size':    `var(--ds-button-control-icon-size-${s})`,
     '--btn-font-size':    `var(--ds-font-size-${FONT_SIZE_SUFFIX[s]})`,
   };
@@ -241,7 +269,7 @@ const cssVars = computed<Record<string, string>>(() => {
            text-[color:var(--btn-color)]
            whitespace-nowrap
            focus-visible:outline-none"
-    :class="{ 'opacity-40 pointer-events-none': disabled }"
+    :class="{ 'pointer-events-none cursor-not-allowed': disabled }"
   >
     <!-- ── Icon-only mode ─────────────────────────────────────────────────── -->
     <span
