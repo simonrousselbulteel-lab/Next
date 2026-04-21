@@ -25,6 +25,10 @@ const meta = {
       control: 'boolean',
       description: 'Disabled state',
     },
+    rounded: {
+      control: 'boolean',
+      description: 'Pill / fully-rounded radius (uses button.control.radius.rounded = 999px)',
+    },
     iconOnly: {
       control: 'boolean',
       description: 'Square icon-only layout (place icon in default slot)',
@@ -45,6 +49,7 @@ const meta = {
     intent: 'default',
     size: 'md',
     disabled: false,
+    rounded: false,
     iconOnly: false,
     tag: 'button',
     nativeType: 'button',
@@ -167,6 +172,24 @@ export const Disabled: Story = {
         <Button type="tertiary" disabled>Tertiary</Button>
         <Button type="outlined" disabled>Outlined</Button>
         <Button type="ghost" disabled>Ghost</Button>
+      </div>
+    `,
+  }),
+};
+
+// ── Rounded (pill) ───────────────────────────────────────────────────────────
+export const Rounded: Story = {
+  name: 'Rounded (pill)',
+  render: () => ({
+    components: { Button },
+    template: `
+      <div class="flex flex-wrap items-center gap-4">
+        <Button type="primary" :rounded="true">Primary</Button>
+        <Button type="secondary" :rounded="true">Secondary</Button>
+        <Button type="tertiary" :rounded="true">Tertiary</Button>
+        <Button type="outlined" :rounded="true">Outlined</Button>
+        <Button type="ghost" :rounded="true">Ghost</Button>
+        <Button type="primary" intent="alternative" :rounded="true">Alternative</Button>
       </div>
     `,
   }),

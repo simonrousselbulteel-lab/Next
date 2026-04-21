@@ -53,6 +53,7 @@ leading/trailing icon slots, and an icon-only square layout.
 | `intent` | `'default' \| 'destructive' \| 'alternative'` | `'default'` | Color intent — see Intent mapping table below |
 | `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl'` | `'md'` | Size variant |
 | `disabled` | `boolean` | `false` | Disabled state — neutral gray appearance via `default/surface-disabled` and `default/on-surface-disabled` tokens, interaction blocked |
+| `rounded` | `boolean` | `false` | Pill / fully-rounded shape — uses `button.control.radius.rounded` (999px) instead of the size-specific radius |
 | `iconOnly` | `boolean` | `false` | Square icon-only layout; switches to icon-only padding |
 | `tag` | `'button' \| 'a'` | `'button'` | Root HTML element |
 | `nativeType` | `'button' \| 'submit' \| 'reset'` | `'button'` | Native `<button>` type (ignored when `tag="a"`) |
@@ -160,6 +161,11 @@ leading/trailing icon slots, and an icon-only square layout.
 | `button.alternative.secondary-*` | `--ds-button-alternative-secondary-*` |
 | `button.alternative.brand-*` | `--ds-button-alternative-brand-*` |
 
+### Rounded state
+| Token | CSS var |
+|---|---|
+| `button.control.radius.rounded` | `--ds-button-control-radius-rounded` (999px) |
+
 ### Disabled state (universal, overrides any type)
 | Token | CSS var |
 |---|---|
@@ -207,6 +213,12 @@ leading/trailing icon slots, and an icon-only square layout.
 ---
 
 ## Changelog
+
+### 2026-04-21 — Add rounded prop for pill radius
+- Added `rounded` boolean prop that switches radius to `button.control.radius.rounded` (999px / `radius-full`)
+- Works on any `type` × `intent` × `size` combination
+- Preserved in disabled state
+- Added `Rounded` story and `rounded` argType in Playground
 
 ### 2026-04-21 — Fix disabled state to use Figma tokens
 - Replaced `opacity-40` on the root element with `default/surface-disabled` (background) and `default/on-surface-disabled` (text/icon) tokens

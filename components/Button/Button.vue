@@ -33,6 +33,8 @@ const props = withDefaults(defineProps<{
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   /** Disabled state */
   disabled?: boolean;
+  /** Pill / fully-rounded radius — uses button.control.radius.rounded (999px) instead of the size token */
+  rounded?: boolean;
   /** Square icon-only layout — switches to icon-only padding; place icon in default slot */
   iconOnly?: boolean;
   /** Root HTML element */
@@ -44,6 +46,7 @@ const props = withDefaults(defineProps<{
   intent: 'default',
   size: 'md',
   disabled: false,
+  rounded: false,
   iconOnly: false,
   tag: 'button',
   nativeType: 'button',
@@ -129,6 +132,10 @@ const cssVars = computed<Record<string, string>>(() => {
   // ── Disabled state — universal gray tokens regardless of variant ───────────
   // Figma: default/surface-disabled + default/on-surface-disabled.
   // No shadow visible in disabled state.
+  const radiusToken = props.rounded
+    ? 'var(--ds-button-control-radius-rounded)'
+    : `var(--ds-button-control-radius-${s})`;
+
   if (props.disabled) {
     return {
       '--btn-bg':           'var(--ds-default-surface-disabled)',
@@ -141,7 +148,7 @@ const cssVars = computed<Record<string, string>>(() => {
       '--btn-px':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}px-${s})`,
       '--btn-py':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}py-${s})`,
       '--btn-gap':          `var(--ds-button-control-space-between-${s})`,
-      '--btn-radius':       `var(--ds-button-control-radius-${s})`,
+      '--btn-radius':       radiusToken,
       '--btn-icon-size':    `var(--ds-button-control-icon-size-${s})`,
       '--btn-font-size':    `var(--ds-font-size-${FONT_SIZE_SUFFIX[s]})`,
     };
@@ -232,7 +239,7 @@ const cssVars = computed<Record<string, string>>(() => {
     '--btn-px':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}px-${s})`,
     '--btn-py':           `var(--ds-button-control-padding-${io ? 'icon-only-' : ''}py-${s})`,
     '--btn-gap':          `var(--ds-button-control-space-between-${s})`,
-    '--btn-radius':       `var(--ds-button-control-radius-${s})`,
+    '--btn-radius':       radiusToken,
     '--btn-icon-size':    `var(--ds-button-control-icon-size-${s})`,
     '--btn-font-size':    `var(--ds-font-size-${FONT_SIZE_SUFFIX[s]})`,
   };
