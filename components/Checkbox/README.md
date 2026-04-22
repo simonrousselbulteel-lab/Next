@@ -26,7 +26,7 @@ Available in **Vue 3** (`Checkbox.vue`) and **React** (`Checkbox.tsx`).
 ### React
 
 ```tsx
-import { Checkbox } from '@mobivia/design-system/react';
+import { Checkbox } from '@next/design-system/react';
 
 // Uncontrolled
 <Checkbox label="Newsletter" />

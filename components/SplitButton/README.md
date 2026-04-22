@@ -39,8 +39,8 @@ Available in **Vue 3** (`SplitButton.vue`) and **React** (`SplitButton.tsx`).
 ### React
 
 ```tsx
-import { SplitButton } from '@mobivia/design-system/react';
-import type { SplitButtonItem } from '@mobivia/design-system/react';
+import { SplitButton } from '@next/design-system/react';
+import type { SplitButtonItem } from '@next/design-system/react';
 
 const items: SplitButtonItem[] = [
   { label: 'Enregistrer comme brouillon', value: 'draft' },

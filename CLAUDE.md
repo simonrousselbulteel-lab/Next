@@ -7,7 +7,7 @@ work effectively in this repository. Keep it updated as conventions evolve.
 
 ## Design System Name and Purpose
 
-**Name:** `@mobivia/design-system`
+**Name:** `@next/design-system`
 
 **Purpose:** A token-driven, AI-first **dual-framework** component library (Vue 3 + React)
 that maintains a single source of truth flowing from Figma through JSON design tokens

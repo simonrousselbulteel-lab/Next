@@ -50,7 +50,7 @@ Available in **Vue 3** (`Button.vue`) and **React** (`Button.tsx`).
 ### React
 
 ```tsx
-import { Button } from '@mobivia/design-system/react';
+import { Button } from '@next/design-system/react';
 
 // Basic
 <Button>Label</Button>

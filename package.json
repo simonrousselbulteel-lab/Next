@@ -1,12 +1,34 @@
 {
-  "name": "@mobivia/design-system",
+  "name": "@next/design-system",
   "version": "0.1.0",
-  "description": "Token-driven, AI-first Vue 3 component library for the Mobivia Group brands",
+  "description": "Token-driven, AI-first dual-framework (Vue 3 + React) component library",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react.mjs",
+      "require": "./dist/react.cjs",
+      "types": "./dist/react.d.ts"
+    },
+    "./style.css": "./dist/style.css",
+    "./tokens/variables.css": "./dist/tokens/variables.css",
+    "./tokens/semantic.css": "./dist/tokens/semantic.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build:tokens": "tsx style-dictionary.config.ts",
     "dev": "vite",
     "build": "npm run build:tokens && vue-tsc --noEmit && vite build",
+    "build:lib": "npm run build:tokens && vite build -c vite.lib.config.ts && vite build -c vite.css.config.ts && node scripts/post-build.mjs",
     "mcp": "tsx mcp/server.ts",
     "storybook": "npm run build:tokens && storybook dev -p 6009 --ci",
     "storybook:vue": "npm run build:tokens && storybook dev -p 6009 --ci",
@@ -52,6 +74,7 @@
     "tsx": "^4.0.0",
     "typescript": "^5.4.0",
     "vite": "^5.0.0",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.1.0",
     "vue": "^3.4.0",
     "vue-tsc": "^2.0.0"

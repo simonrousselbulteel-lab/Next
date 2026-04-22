@@ -15,5 +15,5 @@ export const splitButtonFigmaConnect = {
     disabled: { figmaProp: 'disabled', type: 'boolean' as const },
     rounded:  { figmaProp: 'rounded',  type: 'boolean' as const },
   },
-  example: `<SplitButton type="primary" :items="[{ label: 'Action', value: 'action' }]">Label</SplitButton>`,
+  example: `import { SplitButton } from '@next/design-system';\n\n<SplitButton type="primary" :items="[{ label: 'Action', value: 'action' }]">Label</SplitButton>`,
 } as const;

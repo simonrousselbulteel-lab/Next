@@ -33,6 +33,8 @@ export const buttonFigmaConnect = {
 
   /** Example snippet rendered in Figma Dev Mode */
   example: `\
+import { Button } from '@next/design-system';
+
 <Button
   type="primary"
   intent="default"

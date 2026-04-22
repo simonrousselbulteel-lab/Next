@@ -1,8 +1,8 @@
-# @mobivia/design-system
+# @next/design-system
 
-A token-driven, AI-first Vue 3 component library for the Mobivia Group brands — Norauto, Midas, ATU, Auto5, and Mobivia.
+A token-driven, AI-first dual-framework (Vue 3 + React) component library for the Norauto brand.
 
-Single source of truth flows from Figma through DTCG design tokens into CSS custom properties and Tailwind v4 utility classes.
+Single source of truth flows from Figma through DTCG design tokens into CSS custom properties and Tailwind v4 utility classes. Components are available for both Vue 3 and React.
 
 ---
 
@@ -18,31 +18,45 @@ npm run build:tokens
 # Start dev server
 npm run dev
 
-# Start Storybook (port 6009)
-npm run storybook
+# Start Vue Storybook (port 6009)
+npm run storybook:vue
+
+# Start React Storybook (port 6010)
+npm run storybook:react
+```
+
+---
+
+## Installation (consumers)
+
+```bash
+npm install @next/design-system
+```
+
+```ts
+// Vue
+import { Button } from '@next/design-system';
+
+// React
+import { Button } from '@next/design-system/react';
+
+// CSS (include once at the app root)
+import '@next/design-system/style.css';
 ```
 
 ---
 
 ## Architecture
 
-### Multi-brand token system
+### Token system
 
-The design system supports **5 brands**. Norauto is the primary brand with full Figma coverage. Other brands share the same universal primitive palette.
-
-| Brand    | Primitives file                  | Semantic file                  |
-|----------|----------------------------------|--------------------------------|
-| Norauto  | `tokens/source/primitives/norauto.json` | `tokens/source/semantic/norauto.json` |
-| Midas    | `tokens/source/primitives/midas.json`   | `tokens/source/semantic/midas.json`   |
-| ATU      | `tokens/source/primitives/atu.json`     | `tokens/source/semantic/atu.json`     |
-| Auto5    | `tokens/source/primitives/auto5.json`   | `tokens/source/semantic/auto5.json`   |
-| Mobivia  | `tokens/source/primitives/mobivia.json` | `tokens/source/semantic/mobivia.json` |
-
-Global (brand-agnostic) primitive files:
+The design system uses a single-brand token architecture targeting Norauto.
 
 | File | Contents |
 |------|----------|
 | `primitives/global-colors.json` | 12 universal color scales: blue, neutral, ambient, periwinkle, red, green, orange, rose, violet, indigo + global palette |
+| `primitives/norauto.json` | Norauto brand scales (`brand/norauto`, `brand/secondary`) |
+| `semantic/norauto.json` | Semantic tokens referencing primitives |
 | `spacing.json` | Horizontal (`padding/px`), vertical (`padding/py`), gap (`space-between`) scales |
 | `radius.json` | Border-radius scale (`radius-N` in px) |
 | `sizing.json` | Component heights, icon sizes, stroke widths, opacity scale |
@@ -70,30 +84,40 @@ tokens/build/
 
 > **Never edit `tokens/build/`** — it is gitignored and regenerated on every `build:tokens` run.
 
+### Dual-framework components
+
+Each component is available in both Vue 3 and React:
+
+```
+components/Button/
+  ├── Button.vue                    ← Vue 3 implementation
+  ├── Button.tsx                    ← React implementation
+  ├── Button.types.ts               ← Shared TypeScript interfaces
+  ├── Button.stories.ts             ← Vue Storybook stories
+  ├── Button.react.stories.tsx      ← React Storybook stories
+  ├── Button.figma.ts               ← Figma Code Connect mapping
+  └── README.md                     ← props, tokens, a11y, changelog
+```
+
 ### Figma Code Connect
 
 Each component has a `Component.figma.ts` file co-located with its implementation. These files record the Figma↔code mapping and are published to Figma Dev Mode via the Figma MCP server.
-
-```
-components/Checkbox/
-  ├── Checkbox.vue          ← component implementation
-  ├── Checkbox.stories.ts   ← Storybook stories
-  ├── Checkbox.figma.ts     ← Figma Code Connect mapping
-  └── README.md             ← props, tokens, a11y, changelog
-```
 
 ---
 
 ## Available commands
 
-| Command                  | Description                                              |
-|--------------------------|----------------------------------------------------------|
-| `npm run build:tokens`   | Rebuild `tokens/build/` from `tokens/source/`            |
-| `npm run dev`            | Start Vite dev server (run `build:tokens` first)         |
-| `npm run build`          | Full production build (tokens → type-check → vite)       |
-| `npm run storybook`      | Start Storybook on port 6009                             |
-| `npm run build-storybook`| Build static Storybook for deployment                    |
-| `npm run mcp`            | Start MCP server exposing design system tools for AI     |
+| Command                     | Description                                              |
+|-----------------------------|----------------------------------------------------------|
+| `npm run build:tokens`      | Rebuild `tokens/build/` from `tokens/source/`            |
+| `npm run dev`               | Start Vite dev server (run `build:tokens` first)         |
+| `npm run build`             | Full production build (tokens → type-check → vite)       |
+| `npm run build:lib`         | Build the publishable npm package into `dist/`           |
+| `npm run storybook:vue`     | Start Vue Storybook on port 6009                         |
+| `npm run storybook:react`   | Start React Storybook on port 6010                       |
+| `npm run build-storybook:vue`   | Build static Vue Storybook                           |
+| `npm run build-storybook:react` | Build static React Storybook                         |
+| `npm run mcp`               | Start MCP server exposing design system tools for AI     |
 
 ---
 
@@ -111,9 +135,11 @@ The design system exposes an MCP server (`npm run mcp`) with three tools for AI 
 
 ## Components
 
-| Component  | Status | Storybook | Figma |
-|------------|--------|-----------|-------|
-| Checkbox   | ✅ Stable | [Stories](components/Checkbox/Checkbox.stories.ts) | [Figma](https://www.figma.com/design/zTOrsaTZ0I7JHoBg7bC46z/Next?node-id=17015-4309) |
+| Component   | Vue | React | Storybook | Figma |
+|-------------|-----|-------|-----------|-------|
+| Button      | ✅  | ✅    | [Vue](components/Button/Button.stories.ts) · [React](components/Button/Button.react.stories.tsx) | [Figma](https://www.figma.com/design/zTOrsaTZ0I7JHoBg7bC46z/Next?node-id=17187-1090) |
+| Checkbox    | ✅  | ✅    | [Vue](components/Checkbox/Checkbox.stories.ts) · [React](components/Checkbox/Checkbox.react.stories.tsx) | [Figma](https://www.figma.com/design/zTOrsaTZ0I7JHoBg7bC46z/Next?node-id=17015-4309) |
+| SplitButton | ✅  | ✅    | [Vue](components/SplitButton/SplitButton.stories.ts) · [React](components/SplitButton/SplitButton.react.stories.tsx) | — |
 
 ---
 
@@ -121,7 +147,7 @@ The design system exposes an MCP server (`npm run mcp`) with three tools for AI 
 
 See [CLAUDE.md](./CLAUDE.md) for the complete conventions guide:
 - Token naming and DTCG format
-- Component structure and Vue conventions
+- Component structure and Vue/React conventions
 - Figma fidelity rules
 - Git workflow and commit format
 - Self-review checklist

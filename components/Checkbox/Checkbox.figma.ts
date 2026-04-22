@@ -39,6 +39,8 @@ export const checkboxFigmaConnect = {
 
   /** Example snippet rendered in Figma Dev Mode */
   example: `\
+import { Checkbox } from '@next/design-system';
+
 <Checkbox
   v-model:checked="checked"
   :indeterminate="indeterminate"
