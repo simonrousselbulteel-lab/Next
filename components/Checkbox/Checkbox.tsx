@@ -77,7 +77,7 @@ export function Checkbox({
       <button
         type="button"
         role="checkbox"
-        aria-checked={indeterminate ? 'mixed' : String(localChecked)}
+        aria-checked={indeterminate ? 'mixed' : localChecked}
         aria-disabled={isDisabled ? 'true' : undefined}
         disabled={isDisabled}
         className="relative flex shrink-0 cursor-pointer items-center bg-transparent p-0"

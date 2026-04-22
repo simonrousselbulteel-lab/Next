@@ -53,13 +53,9 @@ const isSemantic = (t: TransformedToken) =>
 const config: Config = {
   usesDtcg: true,
   source: ['tokens/source/**/*.json'],
-  // Broken references exist in non-norauto brand files (missing alert.* and decorative.*
-  // primitive scales). Treat them as warnings so the build completes; fix when those
-  // primitives are added.
   log: {
     verbosity: 'default',
     warnings: 'warn',
-    errors: { brokenReferences: 'console' },
   },
 
   platforms: {

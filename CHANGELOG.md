@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@mobivia/design-system` are documented here.
+All notable changes to `@next/design-system` are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Versioning follows [Semantic Versioning](https://semver.org/).
 
@@ -41,7 +41,7 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ### Not changed (pending Figma update)
 
-- Midas, ATU, Auto5, Mobivia brand primitives and semantics
+- Midas, ATU, Auto5, Mobivia brand primitives and semantics (deleted — see below)
 - `typography.json`, `shadows.json`, `focus.json`
 
 ---

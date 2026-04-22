@@ -80,7 +80,7 @@ const iconColor = computed(() =>
     <button
       type="button"
       role="checkbox"
-      :aria-checked="props.indeterminate ? 'mixed' : String(localChecked)"
+      :aria-checked="props.indeterminate ? 'mixed' : localChecked"
       :aria-disabled="isDisabled ? 'true' : undefined"
       :disabled="isDisabled"
       class="relative flex shrink-0 cursor-pointer items-center bg-transparent p-0"

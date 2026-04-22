@@ -1,4 +1,4 @@
-// React component exports for @mobivia/design-system
+// React component exports for @next/design-system
 // Import from this file when consuming the React version of the library.
 //
 // Vue components are exported from ./index.ts
